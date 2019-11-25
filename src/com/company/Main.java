@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -15,9 +16,10 @@ public class Main {
             Commands.getUserChoice();
         }
 
-        Characters char1 = new Characters("Hulk", 100, 50, 10);
 
 
-        System.out.println( char1 );
+
+
+
     }
 }
