@@ -8,7 +8,7 @@ public class Commands {
     public final static int HELP_CMD = 1;
 
     public static void help() {
-        System.out.println("--------MENU--------");
+        System.out.println("-------- MENU --------");
         System.out.println("1 - Help");
         System.out.println("2 - Exit");
     }
