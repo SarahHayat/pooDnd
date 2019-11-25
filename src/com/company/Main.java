@@ -13,7 +13,7 @@ public class Main {
         /**
          * Menu help
          */
-        while(Commands.getUserChoice() != Commands.EXIT_CMD){
+        while(Commands.getUserChoice() != Commands.EXIT_CMD){  //loop while, if the user didn't write correctly a command, display a list of commands (à modifier)
             Commands.getUserChoice();
         }
        // Characters chara = new Characters("Carlos", 100, 50, 20);

@@ -12,12 +12,13 @@ public class Commands {
 
    static ArrayList<Characters> characterList = new ArrayList<Characters>();
 
-    public static void help() {
+    public static void help() { //Function which allow to display a menu with options
         System.out.println("-------- MENU --------");
-        System.out.println("1 - Help");
+        System.out.println("1 - Help");// Display a list of commands
         System.out.println("2 - Exit");
         System.out.println("3 - Create Character");
         System.out.println("4 - List Character");
+
     }
 
     public static void exit(){
@@ -26,17 +27,18 @@ public class Commands {
 
     }
 
-    public static void createChar(){
 
+
+    public static void createChar(){ //Function which allow to create a character
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the name : ");
+        System.out.println("Enter the name : ");//add a name
         String newName = sc.nextLine();
-        System.out.println("Enter the MaxLife : ");
+        System.out.println("Enter the MaxLife : ");//add a max number of life
         int maxLife = sc.nextInt();
-        System.out.println("Enter the damage : ");
+        System.out.println("Enter the damage : ");//add a damage number
         int damage = sc.nextInt();
-        System.out.println("Enter the initiative : ");
+        System.out.println("Enter the initiative : ");//add a initiative number
         int initiative = sc.nextInt();
 
         Characters char1 = new Characters(newName, maxLife, damage, initiative);
@@ -50,12 +52,13 @@ public class Commands {
 
         System.out.println(characterList);
     }
-    public static int getUserChoice() {
+    
+    public static int getUserChoice() { // Function which allows to display a list of commands if the user didn't write correctly a command
         Scanner sc = new Scanner(System.in);
         int choice = sc.nextInt();
 
 
-        switch (choice) {
+        switch (choice) { //list  of commands
             case HELP_CMD : Commands.help();
                 break;
 
@@ -71,6 +74,8 @@ public class Commands {
 
         }
         return choice;
+
+
     }
 
 
