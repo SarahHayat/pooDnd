@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Scanner;
+
 public class Characters { //Characters Function
 
     private String name;
@@ -19,6 +21,22 @@ public class Characters { //Characters Function
 
     }
 
+   /* public static Characters newChar(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the name : ");
+        String newName = sc.nextLine();
+        System.out.println("Enter the MaxLife : ");
+        int maxLife = sc.nextInt();
+        System.out.println("Enter the damage : ");
+        int damage = sc.nextInt();
+        System.out.println("Enter the initiative : ");
+        int initiative = sc.nextInt();
+
+        Characters char1 = new Characters(newName, maxLife, damage, initiative);
+        System.out.println(char1.toString());
+
+        return char1;
+    }*/
 
     public String getName(){
         return this.name;
@@ -47,7 +65,8 @@ public class Characters { //Characters Function
     public String toString(){
         return ("-------- " + this.name +" --------" + "\n" + "Damage : " + this.damage + "\n" +
                 "Max Life Points : " + this.maxLifePoints + "\n" + "Current Life Points : " + this.currentLifePoints + "\n" +
-                "Initiative : " + this.initiative); // Send character's information
+
+                "Initiative : " + this.initiative+ "\n"); // Send character's information
 
     }
 
