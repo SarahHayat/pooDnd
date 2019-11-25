@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -15,6 +16,7 @@ public class Main {
         while(Commands.getUserChoice() != Commands.EXIT_CMD){
             Commands.getUserChoice();
         }
+       // Characters chara = new Characters("Carlos", 100, 50, 20);
 
 
 
