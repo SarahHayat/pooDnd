@@ -19,9 +19,6 @@ public class Characters { //Characters Function
 
     }
 
-    public Characters(String name){
-        this(name, 100, 10, 5);
-    }
 
     public String getName(){
         return this.name;
@@ -48,8 +45,8 @@ public class Characters { //Characters Function
     }
 
     public String toString(){
-        return ("-------- " + this.name +" --------" + "\\n" + "Damage : " + this.damage + "\\n" +
-                "Max Life Points : " + this.maxLifePoints + "\\n" + "Current Life Points : " + this.currentLifePoints + "\\n" +
+        return ("-------- " + this.name +" --------" + "\n" + "Damage : " + this.damage + "\n" +
+                "Max Life Points : " + this.maxLifePoints + "\n" + "Current Life Points : " + this.currentLifePoints + "\n" +
                 "Initiative : " + this.initiative);
 
     }

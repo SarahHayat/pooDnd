@@ -11,11 +11,11 @@ public class Main {
         /**
          * Menu help
          */
-        do {
-            int ch = Commands.getUserChoice();
-        }while(ch != Commands.EXIT_CMD);
+        while(Commands.getUserChoice() != Commands.EXIT_CMD){
+            Commands.getUserChoice();
+        }
 
-        Characters char1 = new Characters("Hulk");
+        Characters char1 = new Characters("Hulk", 100, 50, 10);
 
 
         System.out.println( char1 );
