@@ -3,15 +3,14 @@ package com.company;
 public class Commands {
 
     public static void help() {
-        String help = "Débrouille toi !";
-        System.out.println(help);
-
+        System.out.println("--------MENU--------");
+        System.out.println("1 - Help");
+        System.out.println("2 - Exit");
     }
 
     public static void exit(){
-
-        String exit = "Je sors!";
-        System.out.println(exit);
+        
+        System.out.println("Je sors!");
 
     }
 }
