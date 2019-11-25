@@ -8,12 +8,16 @@ public class Main {
         System.out.println("Application has started"); //test message
 
         Commands.help();
-
+        /**
+         * Menu help
+         */
         do {
-            Commands.getUserChoice();
-        }while(Commands.getUserChoice() != Commands.EXIT_CMD);
+            int ch = Commands.getUserChoice();
+        }while(ch != Commands.EXIT_CMD);
+
+        Characters char1 = new Characters("Hulk");
 
 
-
+        System.out.println( char1 );
     }
 }

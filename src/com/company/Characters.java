@@ -8,6 +8,21 @@ public class Characters { //Characters Function
     private int currentLifePoints;
     private int initiative;
 
+
+    public Characters(String name, int maxLifePoints, int damage, int initiative){
+
+        this.name = name;
+        this.damage = damage;
+        this.maxLifePoints = maxLifePoints;
+        this.initiative = initiative;
+        this.currentLifePoints = maxLifePoints;
+
+    }
+
+    public Characters(String name){
+        this(name, 100, 10, 5);
+    }
+
     public String getName(){
         return this.name;
     }
@@ -34,8 +49,8 @@ public class Characters { //Characters Function
 
     public void getCharacter(){
         System.out.println("-------- " + this.name +" --------");
-        System.out.println("1 - Help");
-        System.out.println("2 - Exit");
+        System.out.println("Life points :" + this.currentLifePoints);
+        System.out.println("Initiative :" + this.initiative);
     }
 
 }
