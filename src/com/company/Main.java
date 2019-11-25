@@ -9,20 +9,11 @@ public class Main {
 
         Commands.help();
 
-        Scanner sc = new Scanner(System.in);
-        int choice = sc.nextInt();
+        do {
+            Commands.getUserChoice();
+        }while(Commands.getUserChoice() != Commands.EXIT_CMD);
 
 
-          switch (choice) {
-                case 1 : Commands.help();
-                         break;
-
-                case 2 : Commands.exit();
-                         break;
-
-                default: Commands.help();
-
-        } while (choice != 2 );
 
     }
 }
