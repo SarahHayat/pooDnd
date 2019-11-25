@@ -8,11 +8,11 @@ public class Commands {
     public final static int HELP_CMD = 1;
     public final static int CREATE_CHAR = 3;
 
-    public static void help() {
+    public static void help() { //Function which allow to display a menu with two buttons, one
         System.out.println("-------- MENU --------");
         System.out.println("1 - Help");
         System.out.println("2 - Exit");
-        System.out.println("2 - Create Character");
+        System.out.println("3 - Create Character");
     }
 
     public static void exit(){
@@ -36,7 +36,8 @@ public class Commands {
         System.out.println(char1.toString());
 
     }
-    public static int getUserChoice() {
+    
+    public static int getUserChoice() { // Function which allows to display a list of commands if the user didn't write correctly a command
         Scanner sc = new Scanner(System.in);
         int choice = sc.nextInt();
 
@@ -55,6 +56,8 @@ public class Commands {
 
         }
         return choice;
+
+
     }
 
 

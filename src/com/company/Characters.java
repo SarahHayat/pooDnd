@@ -47,7 +47,7 @@ public class Characters { //Characters Function
     public String toString(){
         return ("-------- " + this.name +" --------" + "\n" + "Damage : " + this.damage + "\n" +
                 "Max Life Points : " + this.maxLifePoints + "\n" + "Current Life Points : " + this.currentLifePoints + "\n" +
-                "Initiative : " + this.initiative);
+                "Initiative : " + this.initiative); // Send character's information
 
     }
 
