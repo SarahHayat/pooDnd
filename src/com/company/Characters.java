@@ -32,12 +32,10 @@ public class Characters { //Characters Function
         this.currentLifePoints = currentLifePoints - damage;
     }
 
-    public void getCharacter(){
-        System.out.println("-------- " + this.name +" --------");
-        System.out.println("Damage : " + this.damage);
-        System.out.println("Max Life Points : " + this.maxLifePoints);
-        System.out.println("Current Life Points : " + this.currentLifePoints);
-        System.out.println("Initiative : " + this.initiative);
+    public String toString(){
+        return ("-------- " + this.name +" --------" + "\\n" + "Damage : " + this.damage + "\\n" +
+                "Max Life Points : " + this.maxLifePoints + "\\n" + "Current Life Points : " + this.currentLifePoints + "\\n" +
+                "Initiative : " + this.initiative);
 
     }
 
