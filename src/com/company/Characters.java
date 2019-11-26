@@ -39,22 +39,27 @@ public class Characters { //Characters Function
     }*/
 
     public String getName(){
+
         return this.name;
     }
 
     public int getDamage(){
+
         return this.damage;
     }
 
     public int getMaxLifePoints(){
+
         return this.maxLifePoints;
     }
 
     public int getCurrentLifePoints(){
+
         return this.currentLifePoints;
     }
 
     public int getInitiative(){
+
         return this.initiative;
     }
 
@@ -65,7 +70,6 @@ public class Characters { //Characters Function
     public String toString(){
         return ("-------- " + this.name +" --------" + "\n" + "Damage : " + this.damage + "\n" +
                 "Max Life Points : " + this.maxLifePoints + "\n" + "Current Life Points : " + this.currentLifePoints + "\n" +
-
                 "Initiative : " + this.initiative+ "\n"); // Send character's information
 
     }
