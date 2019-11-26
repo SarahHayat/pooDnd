@@ -17,6 +17,10 @@ public class Warrior extends Characters {
 
     }
 
+    public void inflictDamage (int damage) {
+
+        this.shield = damage - shield; // Provisoire
+    }
 
 }
 
