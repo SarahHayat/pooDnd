@@ -25,6 +25,7 @@ public class Commands {
         System.out.println("5 - Show Info");
         System.out.println("6 - Fight");
 
+
     }
 
     public static void exit(){
@@ -88,8 +89,27 @@ public class Commands {
 
     }
 
-    public static void launchFight(){
+    public static void launchFight(List<Characters> characterList){
+        Scanner sc = new Scanner(System.in);
 
+        System.out.println("Enter the first character id : ");//add a max number of life
+        int firstCharacterID = sc.nextInt();
+
+        System.out.println("Enter the second character id : ");//add a max number of life
+        int secondCharacterID = sc.nextInt();
+
+        Characters firstCharacter = characterList.get(firstCharacterID);
+        Characters secondCharacter = characterList.get(secondCharacterID);
+
+        if (firstCharacter.getInitiative() < secondCharacter.getInitiative()){
+           while (firstCharacter.getCurrentLifePoints() != 0 || secondCharacter.getCurrentLifePoints() != 0){
+               firstCharacter.inflictDamage(secondCharacter.getDamage());
+               secondCharacter.inflictDamage(firstCharacter.getDamage());
+               int round = 0;
+               round++;
+
+           }
+        }
         int round = 0;
         round++;
 
@@ -141,7 +161,7 @@ public class Commands {
                     break;
 
                 case LAUNCH_FIGHT:
-                    Commands.launchFight();
+                    Commands.launchFight(characterList);
                     break;
 
 
