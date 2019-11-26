@@ -13,17 +13,14 @@ public Wizard (String name, int damage, int maxLifePoints, int initiative, int m
     // Double the current magic damage for the first round
 }
 
-    public int getCurrentMagicDamage(int damage) {
-         return (this.currentMagicDamage);
-    }
+    public int getCurrentMagicDamage() { return this.currentMagicDamage/2; }
 
-    public int getMaxMagicDamage(int damage) {
-        return (this.maxMagicDamage);
-    }
+    public int getMaxMagicDamage() { return this.maxMagicDamage/2; }
 
     public int getDamage(int damage) {
-        return (this.currentMagicDamage)/2 + damage;
-    } // Divide the magic damage by 2 each round
+        this.currentMagicDamage = currentMagicDamage/2;
+        return this.currentMagicDamage + damage;
+    } // Divide the magic damage by 2 and return it with the damage
 
     public void resetMagicDamage(){
         this.currentMagicDamage = maxMagicDamage*2;
@@ -31,7 +28,7 @@ public Wizard (String name, int damage, int maxLifePoints, int initiative, int m
     }
 
     public String toString(){
-        return (super.toString() + "Base Magic Damage : " + this.maxMagicDamage+ "\n"); // Send character's information
+        return (super.toString() + "Base Magic Damage : " + this.getMaxMagicDamage() + "\n"); // Send character's information
 
     }
 
