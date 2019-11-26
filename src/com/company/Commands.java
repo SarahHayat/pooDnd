@@ -9,6 +9,7 @@ public class Commands {
     public final static int HELP_CMD = 1;
     public final static int CREATE_CHAR = 3;
     public final static int LIST_CHAR = 4;
+    public final static int LAUNCH_FIGHT = 5;
 
   // ArrayList<Characters> characterList = new ArrayList<Characters>();
 
@@ -78,13 +79,15 @@ public class Commands {
                     Commands.exit();
                     break;
 
-            case LAUNCH_FIGHT : Commands.launchFight;
-                break;
                 case CREATE_CHAR:
                     Commands.createChar(characterList);
                     break;
                 case LIST_CHAR:
                     Commands.listChar(characterList);
+                    break;
+
+                case LAUNCH_FIGHT:
+                    Commands.launchFight();
                     break;
 
                 default:
