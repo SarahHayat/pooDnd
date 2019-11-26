@@ -74,10 +74,10 @@ public class Commands {
                     break;
 
                 case CREATE_CHAR:
-                    Commands.createChar( characterList);
+                    Commands.createChar(characterList);
                     break;
                 case LIST_CHAR:
-                    Commands.listChar( characterList);
+                    Commands.listChar(characterList);
                     break;
 
                 default:
