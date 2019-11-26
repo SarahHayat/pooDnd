@@ -89,7 +89,8 @@ public class Commands {
 
     }
 
-    public static void launchFight(List<Characters> characterList){
+    public static void launchFight(List<Characters> characterList) {
+        int round = 0;
         Scanner sc = new Scanner(System.in);
 
         System.out.println("Enter the first character id : ");//add a max number of life
@@ -98,21 +99,59 @@ public class Commands {
         System.out.println("Enter the second character id : ");//add a max number of life
         int secondCharacterID = sc.nextInt();
 
-        Characters firstCharacter = characterList.get(firstCharacterID);
-        Characters secondCharacter = characterList.get(secondCharacterID);
+        Characters firstCharacter = characterList.get(firstCharacterID - 1);
+        System.out.println("The first fighter is : " + firstCharacter.getName());
+        Characters secondCharacter = characterList.get(secondCharacterID - 1);
+        System.out.println("The second fighter is : " + secondCharacter.getName());
 
-        if (firstCharacter.getInitiative() < secondCharacter.getInitiative()){
-           while (firstCharacter.getCurrentLifePoints() != 0 || secondCharacter.getCurrentLifePoints() != 0){
-               firstCharacter.inflictDamage(secondCharacter.getDamage());
-               secondCharacter.inflictDamage(firstCharacter.getDamage());
-               int round = 0;
-               round++;
+        if (firstCharacter.getInitiative() < secondCharacter.getInitiative()) {
+            while (firstCharacter.getCurrentLifePoints() > 0 && secondCharacter.getCurrentLifePoints() > 0) {
+                System.out.println("Actual Life Points of " + firstCharacter.getName() + " : " + firstCharacter.getCurrentLifePoints());
+                firstCharacter.inflictDamage(secondCharacter.getDamage());
+                System.out.println("Actual Life Points of " + secondCharacter.getName() + " : " + secondCharacter.getCurrentLifePoints());
+                secondCharacter.inflictDamage(firstCharacter.getDamage());
 
-           }
+                round++;
+
+                System.out.println("ROUND " + round);
+
+                System.out.println("Life Points of " + firstCharacter.getName() + " : " + firstCharacter.getCurrentLifePoints());
+                System.out.println("Damage infliged by "+ firstCharacter.getName() + ": " + firstCharacter.getDamage());
+
+                System.out.println("Life Points of " + secondCharacter.getName() + " : " + secondCharacter.getCurrentLifePoints());
+                System.out.println("Damage infliged by "+ secondCharacter.getName() + ": " + secondCharacter.getDamage());
+
+
+            }
+        } else {
+            while (firstCharacter.getCurrentLifePoints() > 0 && secondCharacter.getCurrentLifePoints() > 0) {
+                System.out.println("Actual Life Points of " + secondCharacter.getName() + " : " + secondCharacter.getCurrentLifePoints());
+                secondCharacter.inflictDamage(secondCharacter.getDamage());
+                System.out.println("Actual Life Points of " + firstCharacter.getName() + " : " + firstCharacter.getCurrentLifePoints());
+                firstCharacter.inflictDamage(firstCharacter.getDamage());
+
+                round++;
+
+                System.out.println("ROUND " + round);
+
+                System.out.println("Life Points of " + secondCharacter.getName() + " : " + secondCharacter.getCurrentLifePoints());
+                System.out.println("Damage infliged by "+ secondCharacter.getName() + ": " + secondCharacter.getDamage());
+
+                System.out.println("Life Points of " + firstCharacter.getName() + " : " + firstCharacter.getCurrentLifePoints());
+                System.out.println("Damage infliged by "+ firstCharacter.getName() + ": " + firstCharacter.getDamage());
+
+            }
+
+
         }
-        int round = 0;
-        round++;
-
+        System.out.println("Fight finish");
+        if (firstCharacter.getCurrentLifePoints() > 0 ){
+            System.out.println("The winner is :" + firstCharacter.getName());
+            System.out.println("The loser is : " + secondCharacter.getName());
+        }else if(secondCharacter.getCurrentLifePoints() > 0 ){
+            System.out.println("The winner is :" + secondCharacter.getName());
+            System.out.println("The loser is : " + firstCharacter.getName());
+        }
     }
     
     public static int getUserChoice() { // Function which allows to display a list of commands if the user didn't write correctly a command
