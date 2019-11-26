@@ -20,4 +20,9 @@ public class Thief extends Characters {
 
         return this.criticalDamage;
     }
+
+    public String toString(){
+        return (super.toString() + "Critical damage : " + this.getCriticalDamage() + "\n"); // Send character's information
+
+    }
 }
