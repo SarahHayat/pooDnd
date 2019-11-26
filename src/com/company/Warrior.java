@@ -18,8 +18,14 @@ public class Warrior extends Characters {
     }
 
     public void inflictDamage (int damage) {
+        if (damage > shield) {
+            super.inflictDamage(damage);
+        }
+    }
 
-        this.shield = damage - shield; // Provisoire
+    public String toString(){
+        return (super.toString() + "Shield : " + this.shield+ "\n"); // Send character's information
+
     }
 
 }
