@@ -10,7 +10,7 @@ public class Commands {
     public final static int CREATE_CHAR = 3;
     public final static int LIST_CHAR = 4;
 
-   static ArrayList<Characters> characterList = new ArrayList<Characters>();
+  // ArrayList<Characters> characterList = new ArrayList<Characters>();
 
     public static void help() { //Function which allow to display a menu with options
         System.out.println("-------- MENU --------");
@@ -29,7 +29,7 @@ public class Commands {
 
 
 
-    public static void createChar(){ //Function which allow to create a character
+    public static void createChar(ArrayList characterList){ //Function which allow to create a character
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the name : ");//add a name
@@ -45,38 +45,50 @@ public class Commands {
         //System.out.println(char1.toString());
         characterList.add(char1);
 
+
+
     }
 
-    public static void listChar(){
+    public static void listChar(ArrayList characterList){
 
 
         System.out.println(characterList);
     }
     
     public static int getUserChoice() { // Function which allows to display a list of commands if the user didn't write correctly a command
+        System.out.println("Enter Command");
         Scanner sc = new Scanner(System.in);
         int choice = sc.nextInt();
-
-
-        switch (choice) { //list  of commands
-            case HELP_CMD : Commands.help();
-                break;
-
-            case EXIT_CMD : Commands.exit();
-                break;
-
-            case CREATE_CHAR : Commands.createChar();
-                break;
-            case LIST_CHAR : Commands.listChar();
-                break;
-
-            default: Commands.help();
-
-        }
         return choice;
+    }
+
+    public static void executeUserChoice(int c, ArrayList characterList){
+
+            switch (c) { //list  of commands
+                case HELP_CMD:
+                    Commands.help();
+                    break;
+
+                case EXIT_CMD:
+                    Commands.exit();
+                    break;
+
+                case CREATE_CHAR:
+                    Commands.createChar( characterList);
+                    break;
+                case LIST_CHAR:
+                    Commands.listChar( characterList);
+                    break;
+
+                default:
+                    Commands.help();
+
+            }
+        }
+
 
 
     }
 
 
-}
+
