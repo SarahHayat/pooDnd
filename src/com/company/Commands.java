@@ -53,8 +53,8 @@ public class Commands {
      *
      */
 
-    public static void createChar(List<Characters> characterList){ //Function which allow to create a character
-
+    public static void createAnyChar(List<Characters> characterList) { //Function which allow to create a character
+    }
     public static void createCharMenu(){
         System.out.println("--- CHARACTER TYPES ---");
         System.out.println("1 - Basic");
@@ -120,37 +120,9 @@ public class Commands {
 
     }
 
-<<<<<<< HEAD
-    public static void deleteChar (List<Characters> characterList) {
-
-        System.out.println("Please select Character :");
-        Scanner scan = new Scanner(System.in);
-
-        try {
-            int characterListID = scan.nextInt();
-            Characters charactersListID = characterList.get(characterListID - 1);
-            System.out.println("Are you sure to delete this character");
-            System.out.println("1 - Yes");
-            System.out.println("2 - No");
-            int answer = scan.nextInt();
-            if (answer == 1){
-                characterList.remove(characterListID);
-
-            }else if (answer == 0){
-
-            }
-        }
-        catch (Exception e){
-            System.out.println("Error, This character doesn't exist. Please try again");
 
 
-        }
-=======
-    /**
-     * Delete a character
-     * @param characterList - list of all characters created
-     *
-     */
+
 
     public static void createWizard(List<Characters> characterList){ //Function which allow to create a character
 
@@ -217,16 +189,33 @@ public class Commands {
 
     }
 
-    public static void deleteChar (ArrayList characterList) {
->>>>>>> master
+    public static void deleteChar (List<Characters> characterList) {
+
+        System.out.println("Please select Character :");
+        Scanner scan = new Scanner(System.in);
+
+        try { int characterListID = scan.nextInt();
+            Characters charactersListID = characterList.get(characterListID - 1);
+            System.out.println("Are you sure to delete this character");
+            System.out.println("1 - Yes");
+            System.out.println("2 - No");
+            int answer = scan.nextInt();
+            if (answer == 1){
+                characterList.remove(characterListID - 1);
+
+            }else if (answer == 0){
+
+            }
+        }
+        catch (Exception e){
+                        System.out.println("Error, This character doesn't exist. Please try again");
+
+
+        }
 
 
     }
-    /**
-     * Show the characters list
-     * @param characterList - list of all characters created
-     *
-     */
+
     public static void listChar(List<Characters> characterList){
     int i = 0;
     for (Characters character : characterList){
@@ -236,12 +225,6 @@ public class Commands {
     }
 
     }
-
-    /**
-     * Show all informations about a character
-     * @param characterList - list of all characters created
-     *
-     */
 
     public static void showInfoChar(List<Characters> characterList){
         System.out.println("Please select Character :");
@@ -261,12 +244,6 @@ public class Commands {
 
 
     }
-
-    /**
-     * Launch the fight between 2 characters
-     * @param characterList - list of all characters created
-     *
-     */
 
     public static void launchFight(List<Characters> characterList) {
         int round = 0;
@@ -334,13 +311,6 @@ public class Commands {
         }
     }
 
-
-<<<<<<< HEAD
-
-
-    
-=======
->>>>>>> master
     public static int getUserChoice() { // Function which allows to display a list of commands if the user didn't write correctly a command
         System.out.println("Enter Command");
         Scanner sc = new Scanner(System.in);
