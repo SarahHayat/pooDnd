@@ -2,6 +2,7 @@ package com.company;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -9,7 +10,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-         ArrayList<Characters> characterList = new ArrayList<Characters>();
+         List<Characters> characterList = new ArrayList<Characters>();
 
         System.out.println("Application has started"); //test message
 
