@@ -29,7 +29,7 @@ public class Commands {
      */
 
     public static void help() { //Function which allow to display a menu with options
-        System.out.println("-------- MENU --------");
+        System.out.println("\u001B[43m -------- MENU -------- \u001B[0m");
         System.out.println("1 - Help");// Display a list of commands
         System.out.println("2 - Exit");
         System.out.println("3 - Create a character");
@@ -58,7 +58,7 @@ public class Commands {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the name : ");//add a name
         String newName = sc.nextLine();
-        System.out.println("Enter the MaxLife : ");//add a max number of life
+        System.out.println("Enter the life points : ");//add a max number of life
         int maxLife = sc.nextInt();
         System.out.println("Enter the damage : ");//add a damage number
         int damage = sc.nextInt();
@@ -228,28 +228,26 @@ public class Commands {
 //
 //    }
 
-    public static void deleteChar (ArrayList characterList) {
+    public static void deleteChar (List<Characters> characterList) {
 
         System.out.println("Please select Character :");
         Scanner scan = new Scanner(System.in);
 
         try { int characterListID = scan.nextInt();
             Characters charactersListID = characterList.get(characterListID - 1);
-            System.out.println("Are you sure to delete this character");
-            System.out.println("1 - Yes");
-            System.out.println("2 - No");
+            System.out.println("Are you sure you want to \u001B[31mdelete\u001B[0m " + charactersListID.getName() + " ?");
+            System.out.println("1 - \u001B[32m Yes \u001B[0m");
+            System.out.println("2 - \u001B[31m No \u001B[0m");
             int answer = scan.nextInt();
             if (answer == 1){
                 characterList.remove(characterListID - 1);
-
+                System.out.println(charactersListID.getName() + " has been deleted. \uD83D\uDDD1️");
             }else if (answer == 0){
-
+                // Do nothing
             }
         }
         catch (Exception e){
-                        System.out.println("Error, This character doesn't exist. Please try again");
-
-
+            System.out.println(" ⚠️ Error, This character doesn't exist. Please try again");
         }
 
 
@@ -369,7 +367,7 @@ public class Commands {
 
                     }
                     catch(Exception e){
-                        System.out.println("Error, please try again");
+                        System.out.println("⚠️ Error, please try again");
                         int ch = Commands.getChoiceChar();
                         Commands.createAnyChar(ch,characterList);
 
