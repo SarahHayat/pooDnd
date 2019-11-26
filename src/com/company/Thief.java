@@ -16,10 +16,26 @@ public class Thief extends Characters {
         this.criticalPreviousTurn = false;
     }
 
-
+    /**
+     * Get the probability of dodge
+     * @return probDodge
+     *
+     */
     public int getProbDodge() { return this.probDodge; }
 
+    /**
+     * Get the probability of Critical Damage
+     * @return probCritical
+     *
+     */
+
     public int getProbCritical() { return this.probCritical; }
+
+    /**
+     *
+     * @param damage
+     *
+     */
 
     public void inflictDamage(int damage){
 
@@ -34,6 +50,12 @@ public class Thief extends Characters {
             this.inflictDamage(damage);
         }
     }
+
+    /**
+     *
+     *
+     *
+     */
 
     public int getDamage(){
 
