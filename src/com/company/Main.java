@@ -1,9 +1,7 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner;
 
 public class Main {
 
@@ -19,11 +17,24 @@ public class Main {
          * Menu help
          */
         int c;
+        int b;
+       // int choice;
         do {  //loop while, if the user didn't write correctly a command, display a list of commands (à modifier)
             Commands.help();
              c = Commands.getUserChoice();
              Commands.executeUserChoice(c , characterList);
+
         }while( c != Commands.EXIT_CMD);
+
+        /**
+         * Menu create
+         */
+     //   int choice;
+     //   do {
+     //       Commands.getHelpChar();
+      //      choice = Commands.getChoiceChar();
+       //     Commands.executeCreate(choice, characterList);
+       // }while ( choice != Commands.Exit_CMD);
 
 
 

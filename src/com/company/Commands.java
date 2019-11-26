@@ -15,6 +15,12 @@ public class Commands {
     public final static int LAUNCH_FIGHT = 6;
     public final static int DELETE_CHAR = 7;
 
+    public final static int BASIC_CHAR = 1;
+    public final static int WARRIOR_CHAR = 2;
+    public final static int WIZARD_CHAR = 3;
+    public final static int THIEF_CHAR = 4;
+    public final static int EXIT_CHAR = 5;
+
   // ArrayList<Characters> characterList = new ArrayList<Characters>();
 
     /**
@@ -48,6 +54,54 @@ public class Commands {
      */
 
     public static void createChar(List<Characters> characterList){ //Function which allow to create a character
+
+    public static void createCharMenu(){
+        System.out.println("--- CHARACTER TYPES ---");
+        System.out.println("1 - Basic");
+        System.out.println("2 - Warrior");
+        System.out.println("3 - Wizard");
+        System.out.println("4 - Thief");
+        System.out.println("5 - Exit");
+    }
+
+    public static int getChoiceChar(){
+
+        System.out.println("Please select a type :");
+        Scanner sc = new Scanner(System.in);
+        int choice= sc.nextInt();
+
+        return choice;
+
+    }
+
+    public static void executeCreate(int choice, List<Characters> characterList){
+        switch (choice){
+            case BASIC_CHAR :
+                Commands.createBasicChar(characterList);
+                break;
+            case WARRIOR_CHAR :
+                Commands.createWarrior(characterList);
+                break;
+            case WIZARD_CHAR :
+                Commands.createWizard(characterList);
+                break;
+            case THIEF_CHAR :
+                Commands.createThief(characterList);
+                break;
+            case EXIT_CHAR:
+                Commands.help();
+            default: Commands.createCharMenu();
+        }
+    }
+
+    public static void createChar(List<Characters> characterList){
+        int c;
+        Commands.createCharMenu();
+        c = Commands.getChoiceChar();
+        executeCreate(c, characterList);
+
+    }
+    public static void createBasicChar(List<Characters> characterList){ //Function which allow to create a character
 
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the name : ");//add a name
@@ -97,6 +151,71 @@ public class Commands {
      * @param characterList - list of all characters created
      *
      */
+
+    public static void createWizard(List<Characters> characterList){ //Function which allow to create a character
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the name : ");//add a name
+        String newName = sc.nextLine();
+        System.out.println("Enter the damage : ");//add a damage number
+        int damage = sc.nextInt();
+        System.out.println("Enter the MaxLife : ");//add a max number of life
+        int maxLife = sc.nextInt();
+        System.out.println("Enter the initiative : ");//add a initiative number
+        int initiative = sc.nextInt();
+        System.out.println("Enter the magic damage : ");//add a magic damage number
+        int magicDamage = sc.nextInt();
+        
+
+        Wizard wiz = new Wizard( newName, damage , maxLife, initiative, magicDamage);
+        //System.out.println(char1.toString());
+        characterList.add(wiz);
+
+
+    }
+
+    public static void createWarrior(List<Characters> characterList){ //Function which allow to create a character
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the name : ");//add a name
+        String newName = sc.nextLine();
+        System.out.println("Enter the MaxLife : ");//add a max number of life
+        int maxLife = sc.nextInt();
+        System.out.println("Enter the damage : ");//add a damage number
+        int damage = sc.nextInt();
+        System.out.println("Enter the initiative : ");//add a initiative number
+        int initiative = sc.nextInt();
+        System.out.println("Enter the shield points : ");//add a shield point number
+        int shieldPoints = sc.nextInt();
+        
+
+        Warrior war = new Warrior(newName, maxLife, damage,initiative, shieldPoints);
+        //System.out.println(char1.toString());
+        characterList.add(war);
+
+
+    }
+    public static void createThief(List<Characters> characterList){ //Function which allow to create a character
+
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the name : ");//add a name
+        String newName = sc.nextLine();
+        System.out.println("Enter the damage : ");//add a damage number
+        int damage = sc.nextInt();
+        System.out.println("Enter the MaxLife : ");//add a max number of life
+        int maxLife = sc.nextInt();
+        System.out.println("Enter the initiative : ");//add a initiative number
+        int initiative = sc.nextInt();
+        System.out.println("Enter the dodge points : ");//add a shield point number
+        int dodgePoints= sc.nextInt();
+
+
+        Warrior war = new Warrior(newName, maxLife, damage,initiative, dodgePoints);
+        //System.out.println(char1.toString());
+        characterList.add(war);
+
+
+    }
 
     public static void deleteChar (ArrayList characterList) {
 >>>>>>> master
@@ -168,6 +287,7 @@ public class Commands {
             while (firstCharacter.getCurrentLifePoints() > 0 && secondCharacter.getCurrentLifePoints() > 0) {
                 System.out.println("Actual Life Points of " + firstCharacter.getName() + " : " + firstCharacter.getCurrentLifePoints());
                 firstCharacter.inflictDamage(secondCharacter.getDamage());
+
                 System.out.println("Actual Life Points of " + secondCharacter.getName() + " : " + secondCharacter.getCurrentLifePoints());
                 secondCharacter.inflictDamage(firstCharacter.getDamage());
 
@@ -250,6 +370,7 @@ public class Commands {
                 case CREATE_CHAR:
                     try {
                         Commands.createChar(characterList);
+
                     }
                     catch(Exception e){
                         System.out.println("Error, please try again");
