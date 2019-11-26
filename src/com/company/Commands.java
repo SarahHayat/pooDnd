@@ -54,8 +54,11 @@ public class Commands {
      */
 
     public static void createAnyChar(int choice,List<Characters> characterList) { //Function which allow to create a character
-        choice = Commands.getChoiceChar();
+
+
         Scanner sc = new Scanner(System.in);
+
+
         System.out.println("Enter the name : ");//add a name
         String newName = sc.nextLine();
         System.out.println("Enter the life points : ");//add a max number of life
@@ -69,21 +72,25 @@ public class Commands {
             case BASIC_CHAR :
                 Characters char1 = new Characters(newName, maxLife, damage, initiative);
                 characterList.add(char1);
+                break;
             case WARRIOR_CHAR :
                 System.out.println("Enter the shield points: ");//add a shield number
                 int shieldPoints = sc.nextInt();
                 Warrior war = new Warrior(newName, maxLife, damage,initiative, shieldPoints);
                 characterList.add(war);
+                break;
             case WIZARD_CHAR :
                 System.out.println("Enter the magic damage : ");//add a magic damage number
                 int magicDamage = sc.nextInt();
                 Wizard wiz = new Wizard( newName, damage , maxLife, initiative, magicDamage);
                 characterList.add(wiz);
+                break;
             case THIEF_CHAR :
                 System.out.println("Enter the dodge points : ");//add a shield point number
                 int dodgePoints= sc.nextInt();
                 Warrior warrior = new Warrior(newName, maxLife, damage,initiative, dodgePoints);
                 characterList.add(warrior);
+                break;
 
         }
 
@@ -108,125 +115,15 @@ public class Commands {
 
     }
 
- /*   public static void executeCreate(int choice, List<Characters> characterList){
-        switch (choice){
-            case BASIC_CHAR :
-                Commands.createBasicChar(characterList);
-                break;
-            case WARRIOR_CHAR :
-                Commands.createWarrior(characterList);
-                break;
-            case WIZARD_CHAR :
-                Commands.createWizard(characterList);
-                break;
-            case THIEF_CHAR :
-                Commands.createThief(characterList);
-                break;
-            case EXIT_CHAR:
-                Commands.help();
-            default: Commands.createCharMenu();
-        }
-    }*/
-/*
-    public static void createChar(List<Characters> characterList){
-        int c;
-        Commands.createCharMenu();
-        c = Commands.getChoiceChar();
-        executeCreate(c, characterList);
-
-    }
-    public static void createBasicChar(List<Characters> characterList){ //Function which allow to create a character
-
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the name of your character: ");//add a name
-        String newName = sc.nextLine();
-        System.out.println("Enter the life points of your character: ");//add a max number of life
-        int maxLife = sc.nextInt();
-        System.out.println("Enter the damage output of your character: ");//add a damage number
-        int damage = sc.nextInt();
-        System.out.println("Enter the initiative of your character: ");//add a initiative number
-        int initiative = sc.nextInt();
-
-        Characters char1 = new Characters(newName, maxLife, damage, initiative);
-        //System.out.println(char1.toString());
-        characterList.add(char1);
-
-
-    }
-
-    *//**
+/**
      * Delete a character
      * @param characterList - list of all characters created
      *
-     *//*
+     */
 
 
 
 
-    public static void createWizard(List<Characters> characterList){ //Function which allow to create a character
-
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the name : ");//add a name
-        String newName = sc.nextLine();
-        System.out.println("Enter the MaxLife : ");//add a max number of life
-        int maxLife = sc.nextInt();
-        System.out.println("Enter the damage : ");//add a damage number
-        int damage = sc.nextInt();
-        System.out.println("Enter the initiative : ");//add a initiative number
-        int initiative = sc.nextInt();
-        System.out.println("Enter the magic damage : ");//add a magic damage number
-        int magicDamage = sc.nextInt();
-
-
-        Wizard wiz = new Wizard( newName, damage , maxLife, initiative, magicDamage);
-        //System.out.println(char1.toString());
-        characterList.add(wiz);
-
-
-    }
-
-    public static void createWarrior(List<Characters> characterList){ //Function which allow to create a character
-
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the name : ");//add a name
-        String newName = sc.nextLine();
-        System.out.println("Enter the MaxLife : ");//add a max number of life
-        int maxLife = sc.nextInt();
-        System.out.println("Enter the damage : ");//add a damage number
-        int damage = sc.nextInt();
-        System.out.println("Enter the initiative : ");//add a initiative number
-        int initiative = sc.nextInt();
-        System.out.println("Enter the shield points : ");//add a shield point number
-        int shieldPoints = sc.nextInt();
-
-
-        Warrior war = new Warrior(newName, maxLife, damage,initiative, shieldPoints);
-        //System.out.println(char1.toString());
-        characterList.add(war);
-
-
-    }*/
-//    public static void createThief(List<Characters> characterList){ //Function which allow to create a character
-//
-//        Scanner sc = new Scanner(System.in);
-//        System.out.println("Enter the name : ");//add a name
-//        String newName = sc.nextLine();
-//        System.out.println("Enter the MaxLife : ");//add a max number of life
-//        int maxLife = sc.nextInt();
-//        System.out.println("Enter the damage : ");//add a damage number
-//        int damage = sc.nextInt();
-//        System.out.println("Enter the initiative : ");//add a initiative number
-//        int initiative = sc.nextInt();
-//        System.out.println("Enter the dodge points : ");//add a shield point number
-//        int dodgePoints= sc.nextInt();
-//
-//
-//        Warrior war = new Warrior(newName, maxLife, damage,initiative, dodgePoints);
-//        //System.out.println(char1.toString());
-//        characterList.add(war);
-//
-//
-//    }
 
     public static void deleteChar (List<Characters> characterList) {
 
