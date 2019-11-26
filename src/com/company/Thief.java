@@ -16,6 +16,7 @@ public class Thief extends Characters {
         this.criticalPreviousTurn = false;
     }
 
+
     public int getProbDodge() { return this.probDodge; }
 
     public int getProbCritical() { return this.probCritical; }

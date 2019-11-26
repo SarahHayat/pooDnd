@@ -17,6 +17,12 @@ public class Warrior extends Characters {
 
     }
 
+    /**
+     *
+     * @param damage
+     *
+     */
+
     public void inflictDamage (int damage) {
         if (damage > shield) {
             super.inflictDamage(damage);
