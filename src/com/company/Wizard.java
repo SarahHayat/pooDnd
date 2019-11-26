@@ -20,8 +20,8 @@ public Wizard (String name, int damage, int maxLifePoints, int initiative, int m
     public int getCurrentMagicDamage() { return this.currentMagicDamage/2; }
 
     /**
-     * Get the current Magic Damage
-     * @return currentMagicDamage
+     * Get the maximum of Magic Damage
+     * @return maxMagicDamage
      *
      */
 
