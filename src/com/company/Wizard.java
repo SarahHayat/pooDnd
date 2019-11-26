@@ -7,7 +7,10 @@ public class Wizard extends Characters {
 public Wizard (String name, int damage, int maxLifePoints, int initiative, int MagicDamage){
 
     super(name, maxLifePoints, damage, initiative);
-    this.magicDamage = maxLifePoints;
+    this.magicDamage = magicDamage;
 }
 
+    public int getMagicDamage(int Damage) {
+        return this.magicDamage + Damage;
+    }
 }
