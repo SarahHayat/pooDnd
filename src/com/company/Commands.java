@@ -13,6 +13,7 @@ public class Commands {
     public final static int LIST_CHAR = 4;
     public final static int SHOW_CHAR = 5;
     public final static int LAUNCH_FIGHT = 6;
+    public final static int DELETE_CHAR = 7;
 
   // ArrayList<Characters> characterList = new ArrayList<Characters>();
 
@@ -24,6 +25,7 @@ public class Commands {
         System.out.println("4 - List Character");
         System.out.println("5 - Show Info");
         System.out.println("6 - Fight");
+        System.out.println("7 - Delete Character");
 
 
     }
@@ -55,7 +57,30 @@ public class Commands {
 
     }
 
-    public static void deleteChar (ArrayList characterList) {
+    public static void deleteChar (List<Characters> characterList) {
+
+        System.out.println("Please select Character :");
+        Scanner scan = new Scanner(System.in);
+
+        try {
+            int characterListID = scan.nextInt();
+            Characters charactersListID = characterList.get(characterListID - 1);
+            System.out.println("Are you sure to delete this character");
+            System.out.println("1 - Yes");
+            System.out.println("2 - No");
+            int answer = scan.nextInt();
+            if (answer == 1){
+                characterList.remove(characterListID);
+
+            }else if (answer == 0){
+
+            }
+        }
+        catch (Exception e){
+            System.out.println("Error, This character doesn't exist. Please try again");
+
+
+        }
 
 
     }
@@ -153,6 +178,10 @@ public class Commands {
             System.out.println("The loser is : " + firstCharacter.getName());
         }
     }
+
+
+
+
     
     public static int getUserChoice() { // Function which allows to display a list of commands if the user didn't write correctly a command
         System.out.println("Enter Command");
@@ -201,6 +230,10 @@ public class Commands {
 
                 case LAUNCH_FIGHT:
                     Commands.launchFight(characterList);
+                    break;
+
+                case DELETE_CHAR:
+                    Commands.deleteChar(characterList);
                     break;
 
 
