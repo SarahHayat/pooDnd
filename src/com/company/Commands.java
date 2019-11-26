@@ -53,9 +53,43 @@ public class Commands {
      *
      */
 
-    public static void createAnyChar(List<Characters> characterList) { //Function which allow to create a character
+    public static void createAnyChar(int choice,List<Characters> characterList) { //Function which allow to create a character
+        choice = Commands.getChoiceChar();
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the name : ");//add a name
+        String newName = sc.nextLine();
+        System.out.println("Enter the MaxLife : ");//add a max number of life
+        int maxLife = sc.nextInt();
+        System.out.println("Enter the damage : ");//add a damage number
+        int damage = sc.nextInt();
+        System.out.println("Enter the initiative : ");//add a initiative number
+        int initiative = sc.nextInt();
+
+        switch (choice){
+            case BASIC_CHAR :
+                Characters char1 = new Characters(newName, maxLife, damage, initiative);
+                characterList.add(char1);
+            case WARRIOR_CHAR :
+                System.out.println("Enter the shield points: ");//add a shield number
+                int shieldPoints = sc.nextInt();
+                Warrior war = new Warrior(newName, maxLife, damage,initiative, shieldPoints);
+                characterList.add(war);
+            case WIZARD_CHAR :
+                System.out.println("Enter the magic damage : ");//add a magic damage number
+                int magicDamage = sc.nextInt();
+                Wizard wiz = new Wizard( newName, damage , maxLife, initiative, magicDamage);
+                characterList.add(wiz);
+            case THIEF_CHAR :
+                System.out.println("Enter the dodge points : ");//add a shield point number
+                int dodgePoints= sc.nextInt();
+                Warrior warrior = new Warrior(newName, maxLife, damage,initiative, dodgePoints);
+                characterList.add(warrior);
+
+        }
+
     }
-    public static void createCharMenu(){
+
+    public static void displayCharMenu(){
         System.out.println("--- CHARACTER TYPES ---");
         System.out.println("1 - Basic");
         System.out.println("2 - Warrior");
@@ -74,7 +108,7 @@ public class Commands {
 
     }
 
-    public static void executeCreate(int choice, List<Characters> characterList){
+ /*   public static void executeCreate(int choice, List<Characters> characterList){
         switch (choice){
             case BASIC_CHAR :
                 Commands.createBasicChar(characterList);
@@ -92,8 +126,8 @@ public class Commands {
                 Commands.help();
             default: Commands.createCharMenu();
         }
-    }
-
+    }*/
+/*
     public static void createChar(List<Characters> characterList){
         int c;
         Commands.createCharMenu();
@@ -120,6 +154,11 @@ public class Commands {
 
     }
 
+    *//**
+     * Delete a character
+     * @param characterList - list of all characters created
+     *
+     *//*
 
 
 
@@ -129,10 +168,10 @@ public class Commands {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the name : ");//add a name
         String newName = sc.nextLine();
-        System.out.println("Enter the damage : ");//add a damage number
-        int damage = sc.nextInt();
         System.out.println("Enter the MaxLife : ");//add a max number of life
         int maxLife = sc.nextInt();
+        System.out.println("Enter the damage : ");//add a damage number
+        int damage = sc.nextInt();
         System.out.println("Enter the initiative : ");//add a initiative number
         int initiative = sc.nextInt();
         System.out.println("Enter the magic damage : ");//add a magic damage number
@@ -166,30 +205,30 @@ public class Commands {
         characterList.add(war);
 
 
-    }
-    public static void createThief(List<Characters> characterList){ //Function which allow to create a character
+    }*/
+//    public static void createThief(List<Characters> characterList){ //Function which allow to create a character
+//
+//        Scanner sc = new Scanner(System.in);
+//        System.out.println("Enter the name : ");//add a name
+//        String newName = sc.nextLine();
+//        System.out.println("Enter the MaxLife : ");//add a max number of life
+//        int maxLife = sc.nextInt();
+//        System.out.println("Enter the damage : ");//add a damage number
+//        int damage = sc.nextInt();
+//        System.out.println("Enter the initiative : ");//add a initiative number
+//        int initiative = sc.nextInt();
+//        System.out.println("Enter the dodge points : ");//add a shield point number
+//        int dodgePoints= sc.nextInt();
+//
+//
+//        Warrior war = new Warrior(newName, maxLife, damage,initiative, dodgePoints);
+//        //System.out.println(char1.toString());
+//        characterList.add(war);
+//
+//
+//    }
 
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the name : ");//add a name
-        String newName = sc.nextLine();
-        System.out.println("Enter the damage : ");//add a damage number
-        int damage = sc.nextInt();
-        System.out.println("Enter the MaxLife : ");//add a max number of life
-        int maxLife = sc.nextInt();
-        System.out.println("Enter the initiative : ");//add a initiative number
-        int initiative = sc.nextInt();
-        System.out.println("Enter the dodge points : ");//add a shield point number
-        int dodgePoints= sc.nextInt();
-
-
-        Warrior war = new Warrior(newName, maxLife, damage,initiative, dodgePoints);
-        //System.out.println(char1.toString());
-        characterList.add(war);
-
-
-    }
-
-    public static void deleteChar (List<Characters> characterList) {
+    public static void deleteChar (ArrayList characterList) {
 
         System.out.println("Please select Character :");
         Scanner scan = new Scanner(System.in);
@@ -339,12 +378,15 @@ public class Commands {
 
                 case CREATE_CHAR:
                     try {
-                        Commands.createChar(characterList);
+                        Commands.displayCharMenu();
+                        int ch = Commands.getChoiceChar();
+                        Commands.createAnyChar(ch,characterList);
 
                     }
                     catch(Exception e){
                         System.out.println("Error, please try again");
-                        Commands.createChar(characterList);
+                        int ch = Commands.getChoiceChar();
+                        Commands.createAnyChar(ch,characterList);
 
                     }
 
