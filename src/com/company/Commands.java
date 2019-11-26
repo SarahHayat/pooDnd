@@ -17,6 +17,11 @@ public class Commands {
 
   // ArrayList<Characters> characterList = new ArrayList<Characters>();
 
+    /**
+     * Display the menu with commands
+     *
+     */
+
     public static void help() { //Function which allow to display a menu with options
         System.out.println("-------- MENU --------");
         System.out.println("1 - Help");// Display a list of commands
@@ -36,7 +41,11 @@ public class Commands {
 
     }
 
-
+    /**
+     * Create a character
+     * @param characterList - list of all characters created
+     *
+     */
 
     public static void createChar(List<Characters> characterList){ //Function which allow to create a character
 
@@ -57,6 +66,7 @@ public class Commands {
 
     }
 
+<<<<<<< HEAD
     public static void deleteChar (List<Characters> characterList) {
 
         System.out.println("Please select Character :");
@@ -81,10 +91,23 @@ public class Commands {
 
 
         }
+=======
+    /**
+     * Delete a character
+     * @param characterList - list of all characters created
+     *
+     */
+
+    public static void deleteChar (ArrayList characterList) {
+>>>>>>> master
 
 
     }
-
+    /**
+     * Show the characters list
+     * @param characterList - list of all characters created
+     *
+     */
     public static void listChar(List<Characters> characterList){
     int i = 0;
     for (Characters character : characterList){
@@ -94,6 +117,12 @@ public class Commands {
     }
 
     }
+
+    /**
+     * Show all informations about a character
+     * @param characterList - list of all characters created
+     *
+     */
 
     public static void showInfoChar(List<Characters> characterList){
         System.out.println("Please select Character :");
@@ -113,6 +142,12 @@ public class Commands {
 
 
     }
+
+    /**
+     * Launch the fight between 2 characters
+     * @param characterList - list of all characters created
+     *
+     */
 
     public static void launchFight(List<Characters> characterList) {
         int round = 0;
@@ -180,9 +215,12 @@ public class Commands {
     }
 
 
+<<<<<<< HEAD
 
 
     
+=======
+>>>>>>> master
     public static int getUserChoice() { // Function which allows to display a list of commands if the user didn't write correctly a command
         System.out.println("Enter Command");
         Scanner sc = new Scanner(System.in);
