@@ -14,12 +14,13 @@ public class Main {
 
         System.out.println("Application has started"); //test message
 
-        Commands.help();
+
         /**
          * Menu help
          */
         int c;
         do {  //loop while, if the user didn't write correctly a command, display a list of commands (à modifier)
+            Commands.help();
              c = Commands.getUserChoice();
              Commands.executeUserChoice(c , characterList);
         }while( c != Commands.EXIT_CMD);

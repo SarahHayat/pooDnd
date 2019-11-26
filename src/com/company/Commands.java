@@ -11,7 +11,8 @@ public class Commands {
     public final static int EXIT_CMD= 2;
     public final static int CREATE_CHAR = 3;
     public final static int LIST_CHAR = 4;
-    public final static int LAUNCH_FIGHT = 5;
+    public final static int SHOW_CHAR = 5;
+    public final static int LAUNCH_FIGHT = 6;
 
   // ArrayList<Characters> characterList = new ArrayList<Characters>();
 
@@ -21,7 +22,8 @@ public class Commands {
         System.out.println("2 - Exit");
         System.out.println("3 - Create Character");
         System.out.println("4 - List Character");
-        System.out.println("5 - Fight");
+        System.out.println("5 - Show Info");
+        System.out.println("6 - Fight");
 
     }
 
@@ -62,11 +64,25 @@ public class Commands {
     for (Characters character : characterList){
         i++;
         System.out.println("Character " + i + " : " + character.getName() + "\n" );
-    }
 
     }
 
-    public static void showInfoChar(ArrayList characterList){
+    }
+
+    public static void showInfoChar(List<Characters> characterList){
+        System.out.println("Please select Character :");
+        Scanner scan = new Scanner(System.in);
+        int choice;
+        try {
+            choice = scan.nextInt();
+            System.out.println(characterList.get(choice-1));
+        }
+        catch (Exception e){
+            System.out.println("Error, please try again ");
+            choice = scan.nextInt();
+            System.out.println(characterList.get(choice-1));
+        }
+
 
 
 
@@ -118,6 +134,10 @@ public class Commands {
                     break;
                 case LIST_CHAR:
                     Commands.listChar(characterList);
+                    break;
+
+                case SHOW_CHAR:
+                    Commands.showInfoChar(characterList);
                     break;
 
                 case LAUNCH_FIGHT:
