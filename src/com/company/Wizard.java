@@ -2,11 +2,12 @@ package com.company;
 
 public class Wizard extends Characters {
 
-    private int MagicDamage;
+    private int magicDamage;
 
-public Wizard (){
+public Wizard (String name, int damage, int maxLifePoints, int initiative, int MagicDamage){
 
-    super();
+    super(name, maxLifePoints, damage, initiative);
+    this.magicDamage = maxLifePoints;
 }
 
 }
