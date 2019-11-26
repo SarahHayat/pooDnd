@@ -88,7 +88,9 @@ public class Commands {
             case THIEF_CHAR :
                 System.out.println("Enter the dodge points : ");//add a shield point number
                 int dodgePoints= sc.nextInt();
-                Warrior warrior = new Warrior(newName, maxLife, damage,initiative, dodgePoints);
+                System.out.println("Enter the dodge probabilite : ");//add a shield point number
+                int probCritical= sc.nextInt();
+                Thief warrior = new Thief(newName,damage , maxLife,initiative, dodgePoints, probCritical);
                 characterList.add(warrior);
                 break;
 
