@@ -32,10 +32,10 @@ public class Commands {
         System.out.println("-------- MENU --------");
         System.out.println("1 - Help");// Display a list of commands
         System.out.println("2 - Exit");
-        System.out.println("3 - Create Character");
-        System.out.println("4 - List Character");
+        System.out.println("3 - Create a character");
+        System.out.println("4 - List the characters");
         System.out.println("5 - Show Info");
-        System.out.println("6 - Fight");
+        System.out.println("6 - Start a fight");
         System.out.println("7 - Delete Character");
 
 
@@ -43,7 +43,7 @@ public class Commands {
 
     public static void exit(){
 
-        System.out.println("Je sors!");
+        System.out.println("Bye ! \uD83D\uDC4B");
 
     }
 
@@ -138,13 +138,13 @@ public class Commands {
     public static void createBasicChar(List<Characters> characterList){ //Function which allow to create a character
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the name : ");//add a name
+        System.out.println("Enter the name of your character: ");//add a name
         String newName = sc.nextLine();
-        System.out.println("Enter the MaxLife : ");//add a max number of life
+        System.out.println("Enter the life points of your character: ");//add a max number of life
         int maxLife = sc.nextInt();
-        System.out.println("Enter the damage : ");//add a damage number
+        System.out.println("Enter the damage output of your character: ");//add a damage number
         int damage = sc.nextInt();
-        System.out.println("Enter the initiative : ");//add a initiative number
+        System.out.println("Enter the initiative of your character: ");//add a initiative number
         int initiative = sc.nextInt();
 
         Characters char1 = new Characters(newName, maxLife, damage, initiative);
@@ -176,7 +176,7 @@ public class Commands {
         int initiative = sc.nextInt();
         System.out.println("Enter the magic damage : ");//add a magic damage number
         int magicDamage = sc.nextInt();
-        
+
 
         Wizard wiz = new Wizard( newName, damage , maxLife, initiative, magicDamage);
         //System.out.println(char1.toString());
@@ -198,7 +198,7 @@ public class Commands {
         int initiative = sc.nextInt();
         System.out.println("Enter the shield points : ");//add a shield point number
         int shieldPoints = sc.nextInt();
-        
+
 
         Warrior war = new Warrior(newName, maxLife, damage,initiative, shieldPoints);
         //System.out.println(char1.toString());
@@ -285,68 +285,53 @@ public class Commands {
     }
 
     public static void launchFight(List<Characters> characterList) {
-        int round = 0;
+
+        int round = 1;
+        Characters swapCharacter;
         Scanner sc = new Scanner(System.in);
 
-        System.out.println("Enter the first character id : ");//add a max number of life
+        System.out.println("Enter the ID of the first fighter: ");
         int firstCharacterID = sc.nextInt();
 
-        System.out.println("Enter the second character id : ");//add a max number of life
+        System.out.println("Enter the ID of the second fighter: ");
         int secondCharacterID = sc.nextInt();
 
-        Characters firstCharacter = characterList.get(firstCharacterID - 1);
-        System.out.println("The first fighter is : " + firstCharacter.getName());
-        Characters secondCharacter = characterList.get(secondCharacterID - 1);
-        System.out.println("The second fighter is : " + secondCharacter.getName());
+        Characters attacker = characterList.get(firstCharacterID - 1);
+        Characters defender = characterList.get(secondCharacterID - 1);
 
-        if (firstCharacter.getInitiative() < secondCharacter.getInitiative()) {
-            while (firstCharacter.getCurrentLifePoints() > 0 && secondCharacter.getCurrentLifePoints() > 0) {
-                System.out.println("Actual Life Points of " + firstCharacter.getName() + " : " + firstCharacter.getCurrentLifePoints());
-                firstCharacter.inflictDamage(secondCharacter.getDamage());
+        if (defender.getInitiative() > attacker.getInitiative()){
+            // If the defender has a higher initiative than the attacker, we swap both of them
+            defender = characterList.get(firstCharacterID - 1);
+            attacker = characterList.get(secondCharacterID - 1);
+        }
 
-                System.out.println("Actual Life Points of " + secondCharacter.getName() + " : " + secondCharacter.getCurrentLifePoints());
-                secondCharacter.inflictDamage(firstCharacter.getDamage());
+        System.out.println("\u001B[31m" + attacker.getName() + " provokes " + defender.getName() + " in a duel!" + "\u001B[0m" + " ⚔️");
 
-                round++;
+        while (attacker.getCurrentLifePoints() > 0 && defender.getCurrentLifePoints() > 0) {
+            System.out.println("--- ROUND "+ round +" ---");
 
-                System.out.println("ROUND " + round);
+            System.out.println(attacker.getName() +" ("+ attacker.getCurrentLifePoints() +" HP) hits " + defender.getName()+"!");
+            defender.inflictDamage(attacker.getDamage()); // Attacker hits defender
+            System.out.println("They now have " + defender.getCurrentLifePoints()+" HP left.");
 
-                System.out.println("Life Points of " + firstCharacter.getName() + " : " + firstCharacter.getCurrentLifePoints());
-                System.out.println("Damage infliged by "+ firstCharacter.getName() + ": " + firstCharacter.getDamage());
+            // Swap the attacker and the defender
+            swapCharacter = attacker;
+            attacker = defender;
+            defender = swapCharacter;
 
-                System.out.println("Life Points of " + secondCharacter.getName() + " : " + secondCharacter.getCurrentLifePoints());
-                System.out.println("Damage infliged by "+ secondCharacter.getName() + ": " + secondCharacter.getDamage());
-
-
-            }
-        } else {
-            while (firstCharacter.getCurrentLifePoints() > 0 && secondCharacter.getCurrentLifePoints() > 0) {
-                System.out.println("Actual Life Points of " + secondCharacter.getName() + " : " + secondCharacter.getCurrentLifePoints());
-                secondCharacter.inflictDamage(secondCharacter.getDamage());
-                System.out.println("Actual Life Points of " + firstCharacter.getName() + " : " + firstCharacter.getCurrentLifePoints());
-                firstCharacter.inflictDamage(firstCharacter.getDamage());
-
-                round++;
-
-                System.out.println("ROUND " + round);
-
-                System.out.println("Life Points of " + secondCharacter.getName() + " : " + secondCharacter.getCurrentLifePoints());
-                System.out.println("Damage infliged by "+ secondCharacter.getName() + ": " + secondCharacter.getDamage());
-
-                System.out.println("Life Points of " + firstCharacter.getName() + " : " + firstCharacter.getCurrentLifePoints());
-                System.out.println("Damage infliged by "+ firstCharacter.getName() + ": " + firstCharacter.getDamage());
-
-            }
-
+            // Advance the round number
+            round++;
+            System.out.println();
 
         }
-        System.out.println("Fight finish");
-        if (firstCharacter.getCurrentLifePoints() > 0 ){
-            System.out.println("The winner is :" + firstCharacter.getName());
-            System.out.println("The loser is : " + secondCharacter.getName());
-        }else if(secondCharacter.getCurrentLifePoints() > 0 ){
-            System.out.println("The winner is :" + secondCharacter.getName());
-            System.out.println("The loser is : " + firstCharacter.getName());
+
+        System.out.println("\u001B[31m" + "STOP!" + "\u001B[0m");
+
+        if (attacker.getCurrentLifePoints() <= 0 ){
+            System.out.println(defender.getName() + " wins! \uD83D\uDC51");
+        }
+        else if (defender.getCurrentLifePoints() <= 0 ){
+            System.out.println(attacker.getName() + " wins! \uD83D\uDC51");
         }
     }
 
