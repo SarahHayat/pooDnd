@@ -107,7 +107,9 @@ public class Commands {
                secondCharacter.inflictDamage(firstCharacter.getDamage());
                int round = 0;
                round++;
-
+                System.out.println(round++);
+                System.out.println(firstCharacter.getCurrentLifePoints());
+                System.out.println(secondCharacter.getCurrentLifePoints());
            }
         }
         int round = 0;
