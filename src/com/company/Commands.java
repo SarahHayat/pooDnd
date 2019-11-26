@@ -50,6 +50,10 @@ public class Commands {
         characterList.add(char1);
 
 
+    }
+
+    public static void deleteChar (ArrayList characterList) {
+
 
     }
 
@@ -70,6 +74,8 @@ public class Commands {
 
     public static void launchFight(){
 
+        int round = 0;
+        round++;
 
     }
     
