@@ -54,6 +54,11 @@ public class Commands {
 
         System.out.println(characterList);
     }
+
+    public static void launchFight(){
+
+
+    }
     
     public static int getUserChoice() { // Function which allows to display a list of commands if the user didn't write correctly a command
         System.out.println("Enter Command");
@@ -73,6 +78,8 @@ public class Commands {
                     Commands.exit();
                     break;
 
+            case LAUNCH_FIGHT : Commands.launchFight;
+                break;
                 case CREATE_CHAR:
                     Commands.createChar(characterList);
                     break;
