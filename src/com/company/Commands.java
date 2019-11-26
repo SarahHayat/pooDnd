@@ -58,6 +58,8 @@ public class Commands {
 
     public static void launchFight(){
 
+        int round = 0;
+        round++;
 
     }
     
