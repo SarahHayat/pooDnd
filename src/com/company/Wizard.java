@@ -14,7 +14,6 @@ public Wizard (String name, int damage, int maxLifePoints, int initiative, int m
 }
     /**
      * Get the current Magic Damage
-     * @param
      * @return currentMagicDamage
      *
      */
@@ -22,7 +21,6 @@ public Wizard (String name, int damage, int maxLifePoints, int initiative, int m
 
     /**
      * Get the current Magic Damage
-     * @param
      * @return currentMagicDamage
      *
      */
@@ -44,7 +42,6 @@ public Wizard (String name, int damage, int maxLifePoints, int initiative, int m
     /**
      * Reset the Wizard damage
      * Double the current magic damage for the first round
-     * @param
      *
      */
     public void resetMagicDamage(){
