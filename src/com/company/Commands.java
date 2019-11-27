@@ -55,48 +55,54 @@ public class Commands {
 
     public static void createAnyChar(int choice,List<Characters> characterList) { //Function which allow to create a character
 
-
-        Scanner sc = new Scanner(System.in);
-
-
-        System.out.println("Enter the name : ");//add a name
-        String newName = sc.nextLine();
-        System.out.println("Enter the life points : ");//add a max number of life
-        int maxLife = sc.nextInt();
-        System.out.println("Enter the damage : ");//add a damage number
-        int damage = sc.nextInt();
-        System.out.println("Enter the initiative : ");//add a initiative number
-        int initiative = sc.nextInt();
-
-        switch (choice){
-            case BASIC_CHAR :
-                Characters char1 = new Characters(newName, maxLife, damage, initiative);
-                characterList.add(char1);
-                break;
-            case WARRIOR_CHAR :
-                System.out.println("Enter the shield points: ");//add a shield number
-                int shieldPoints = sc.nextInt();
-                Warrior war = new Warrior(newName, maxLife, damage,initiative, shieldPoints);
-                characterList.add(war);
-                break;
-            case WIZARD_CHAR :
-                System.out.println("Enter the magic damage : ");//add a magic damage number
-                int magicDamage = sc.nextInt();
-                Wizard wiz = new Wizard( newName, damage , maxLife, initiative, magicDamage);
-                characterList.add(wiz);
-                break;
-            case THIEF_CHAR :
-                System.out.println("Enter the dodge points : ");//add a shield point number
-                int dodgePoints= sc.nextInt();
-                System.out.println("Enter the critical probabilite : ");//add a shield point number
-                int probCritical= sc.nextInt();
-                Thief thief = new Thief(newName,damage , maxLife,initiative, dodgePoints, probCritical);
-                characterList.add(thief);
-                break;
-            default: displayCharMenu();
+if(choice>0 && choice<6) {
+    Scanner sc = new Scanner(System.in);
 
 
-        }
+    System.out.println("Enter the name : ");//add a name
+    String newName = sc.nextLine();
+    System.out.println("Enter the life points : ");//add a max number of life
+    int maxLife = sc.nextInt();
+    System.out.println("Enter the damage : ");//add a damage number
+    int damage = sc.nextInt();
+    System.out.println("Enter the initiative : ");//add a initiative number
+    int initiative = sc.nextInt();
+
+    switch (choice) {
+        case BASIC_CHAR:
+            Characters char1 = new Characters(newName, maxLife, damage, initiative);
+            characterList.add(char1);
+            break;
+        case WARRIOR_CHAR:
+            System.out.println("Enter the shield points: ");//add a shield number
+            int shieldPoints = sc.nextInt();
+            Warrior war = new Warrior(newName, maxLife, damage, initiative, shieldPoints);
+            characterList.add(war);
+            break;
+        case WIZARD_CHAR:
+            System.out.println("Enter the magic damage : ");//add a magic damage number
+            int magicDamage = sc.nextInt();
+            Wizard wiz = new Wizard(newName, damage, maxLife, initiative, magicDamage);
+            characterList.add(wiz);
+            break;
+        case THIEF_CHAR:
+            System.out.println("Enter the dodge points : ");//add a shield point number
+            int dodgePoints = sc.nextInt();
+            System.out.println("Enter the critical probabilite : ");//add a shield point number
+            int probCritical = sc.nextInt();
+            Thief thief = new Thief(newName, damage, maxLife, initiative, dodgePoints, probCritical);
+            characterList.add(thief);
+            break;
+    }
+}
+        else{
+        System.out.println(" ⚠️ Error, Returning to the main menu");
+        //Commands.help();
+    }
+    // default: displayCharMenu();
+
+
+
 
     }
 
@@ -177,7 +183,7 @@ public class Commands {
             System.out.println(characterList.get(choice-1));
         }
         catch (Exception e){
-            System.out.println("Error, please try again ");
+            System.out.println("Error, please enter a right id ");
             choice = scan.nextInt();
             System.out.println(characterList.get(choice-1));
         }
@@ -215,7 +221,7 @@ public class Commands {
 
             System.out.println(attacker.getName() +" ("+ attacker.getCurrentLifePoints() +" HP) hits " + defender.getName()+"!");
             defender.inflictDamage(attacker.getDamage()); // Attacker hits defender
-            System.out.println("They now have " + defender.getCurrentLifePoints()+" HP left.");
+            System.out.println(defender.getName() + " now has " + defender.getCurrentLifePoints()+" HP left.");
 
             // Swap the attacker and the defender
             swapCharacter = attacker;
@@ -272,9 +278,10 @@ public class Commands {
 
                     }
                     catch(Exception e){
-                        System.out.println("⚠️ Error, please try again");
-                        int ch = Commands.getChoiceChar();
-                        Commands.createAnyChar(ch,characterList);
+                        System.out.println("⚠️ Error, Returning to the main menu");
+                        //int ch = Commands.getChoiceChar();
+                        //Commands.help();
+                        //Commands.createAnyChar(ch,characterList);
 
                     }
 
@@ -284,7 +291,11 @@ public class Commands {
                     break;
 
                 case SHOW_CHAR:
-                    Commands.showInfoChar(characterList);
+                    try {
+                        Commands.showInfoChar(characterList);
+                    }catch (Exception e ){
+                        System.out.println("⚠️ Error, Returning to the main menu");
+                    }
                     break;
 
                 case LAUNCH_FIGHT:
