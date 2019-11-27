@@ -88,11 +88,13 @@ public class Commands {
             case THIEF_CHAR :
                 System.out.println("Enter the dodge points : ");//add a shield point number
                 int dodgePoints= sc.nextInt();
-                System.out.println("Enter the dodge probabilite : ");//add a shield point number
+                System.out.println("Enter the critical probabilite : ");//add a shield point number
                 int probCritical= sc.nextInt();
-                Thief warrior = new Thief(newName,damage , maxLife,initiative, dodgePoints, probCritical);
-                characterList.add(warrior);
+                Thief thief = new Thief(newName,damage , maxLife,initiative, dodgePoints, probCritical);
+                characterList.add(thief);
                 break;
+            default: displayCharMenu();
+
 
         }
 
@@ -122,6 +124,10 @@ public class Commands {
      * @param characterList - list of all characters created
      *
      */
+
+
+
+
 
 
 
