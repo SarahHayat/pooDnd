@@ -1,8 +1,8 @@
 package com.company;
 
 /**
- *
  * RPG Game - List of all commands
+ *
  * @author Sarah, Maxence, Lucas, Laurent
  * @version 1.0
  */
@@ -35,7 +35,6 @@ public class Commands {
     public final static String CUSTOM_TEXT_END = "\u001B[0m";
 
 
-
     /**
      * Display the menu with commands
      */
@@ -54,7 +53,7 @@ public class Commands {
     /**
      * Exit the application
      */
-    public static void exit(){ //Function exit
+    public static void exit() { //Function exit
         System.out.println("Bye! \uD83D\uDC4B");
     }
 
@@ -64,57 +63,55 @@ public class Commands {
      *
      */
 
-    public static void createAnyChar(int choice,List<Characters> characterList) { //Function which allow to create a character
+    public static void createAnyChar(int choice, List<Characters> characterList) { //Function which allow to create a character
 
-if(choice>0 && choice<5) {
-    Scanner sc = new Scanner(System.in);
+        if (choice > 0 && choice < 5) {
+            Scanner sc = new Scanner(System.in);
 
 
-    System.out.println("Enter the name : ");//add a name
-    String newName = sc.nextLine();
-    System.out.println("Enter the life points : ");//add a max number of life
-    int maxLife = sc.nextInt();
-    System.out.println("Enter the damage : ");//add a damage number
-    int damage = sc.nextInt();
-    System.out.println("Enter the initiative : ");//add a initiative number
-    int initiative = sc.nextInt();
+            System.out.println("Enter their name: ");//add a name
+            String newName = sc.nextLine();
+            System.out.println("Enter their life points: ");//add a max number of life
+            int maxLife = sc.nextInt();
+            System.out.println("Enter their damage output: ");//add a damage number
+            int damage = sc.nextInt();
+            System.out.println("Enter their initiative: ");//add a initiative number
+            int initiative = sc.nextInt();
 
-    switch (choice) {
-        case BASIC_CHAR:
-            Characters char1 = new Characters(newName, maxLife, damage, initiative);
-            characterList.add(char1);
-            break;
-        case WARRIOR_CHAR:
-            System.out.println("Enter the shield points: ");//add a shield number
-            int shieldPoints = sc.nextInt();
-            Warrior war = new Warrior(newName, maxLife, damage, initiative, shieldPoints);
-            characterList.add(war);
-            break;
-        case WIZARD_CHAR:
-            System.out.println("Enter the magic damage : ");//add a magic damage number
-            int magicDamage = sc.nextInt();
-            Wizard wiz = new Wizard(newName, damage, maxLife, initiative, magicDamage);
-            characterList.add(wiz);
-            break;
-        case THIEF_CHAR:
-            System.out.println("Enter the dodge points : ");//add a shield point number
-            int dodgePoints = sc.nextInt();
-            System.out.println("Enter the critical probabilite : ");//add a shield point number
-            int probCritical = sc.nextInt();
-            Thief thief = new Thief(newName, damage, maxLife, initiative, dodgePoints, probCritical);
-            characterList.add(thief);
-            break;
-        case EXIT_CHAR :
-            Commands.help();
-    }
-}
-else if(choice == 5){
-    System.out.println("Returning to the main menu.");
-}
-        else{
-        System.out.println(ERROR_MSG_START + "Returning to the main menu." + CUSTOM_TEXT_END);
+            switch (choice) {
+                case BASIC_CHAR:
+                    Characters char1 = new Characters(newName, maxLife, damage, initiative);
+                    characterList.add(char1);
+                    break;
+                case WARRIOR_CHAR:
+                    System.out.println("Enter their shield points: ");//add a shield number
+                    int shieldPoints = sc.nextInt();
+                    Warrior war = new Warrior(newName, maxLife, damage, initiative, shieldPoints);
+                    characterList.add(war);
+                    break;
+                case WIZARD_CHAR:
+                    System.out.println("Enter their magic damage: ");//add a magic damage number
+                    int magicDamage = sc.nextInt();
+                    Wizard wiz = new Wizard(newName, damage, maxLife, initiative, magicDamage);
+                    characterList.add(wiz);
+                    break;
+                case THIEF_CHAR:
+                    System.out.println("Enter their dodge probability: ");//add a shield point number
+                    int dodgePoints = sc.nextInt();
+                    System.out.println("Enter their critical hit probability: ");//add a shield point number
+                    int probCritical = sc.nextInt();
+                    Thief thief = new Thief(newName, damage, maxLife, initiative, dodgePoints, probCritical);
+                    characterList.add(thief);
+                    break;
+                case EXIT_CHAR:
+                    Commands.help();
+            }
+        } else if (choice == 5) {
+            System.out.println("Returning to the main menu.");
+        } else {
+            System.out.println(ERROR_MSG_START + "Returning to the main menu." + CUSTOM_TEXT_END);
 
-    }
+        }
 
 
     }
@@ -122,7 +119,7 @@ else if(choice == 5){
     /**
      * Display Create a character menu
      */
-    public static void displayCharMenu(){
+    public static void displayCharMenu() {
         System.out.println("\u001B[1m--- CHARACTER TYPES ---\u001B[0m");
         System.out.println("1 - Basic \uD83E\uDDCD");
         System.out.println("2 - Warrior \uD83D\uDEE1️");
@@ -135,40 +132,40 @@ else if(choice == 5){
      * Get the user's choice in the Create a character menu
      * @return choice
      */
-    public static int getChoiceChar(){
+    public static int getChoiceChar() {
 
         System.out.println("Please select a type :");
         Scanner sc = new Scanner(System.in);
-        int choice= sc.nextInt();
+        int choice = sc.nextInt();
 
         return choice;
 
     }
 
-/**
+    /**
      * Delete a character
      * @param characterList - list of all characters created
      */
 
-    public static void deleteChar (List<Characters> characterList) {
+    public static void deleteChar(List<Characters> characterList) {
 
         System.out.println("Please select Character :");
         Scanner scan = new Scanner(System.in);
 
-        try { int characterListID = scan.nextInt();
+        try {
+            int characterListID = scan.nextInt();
             Characters charactersListID = characterList.get(characterListID - 1);
             System.out.println("Are you sure you want to \u001B[31mdelete\u001B[0m " + charactersListID.getName() + " ?");
             System.out.println("1 - \u001B[32m Yes" + CUSTOM_TEXT_END);
-            System.out.println("2 - \u001B[31m No"  + CUSTOM_TEXT_END);
+            System.out.println("2 - \u001B[31m No" + CUSTOM_TEXT_END);
             int answer = scan.nextInt();
-            if (answer == 1){
+            if (answer == 1) {
                 characterList.remove(characterListID - 1);
                 System.out.println(charactersListID.getName() + " has been deleted. \uD83D\uDDD1️");
-            }else if (answer == 0){
-                // Do nothing
+            } else if (answer == 0) {
+                // Do nothing because we don't want to delete the character
             }
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.out.println(ERROR_MSG_START + "This character doesn't exist. Please try again" + CUSTOM_TEXT_END);
         }
 
@@ -179,13 +176,13 @@ else if(choice == 5){
      * Show the list of all characters list
      * @param characterList list of all characters created
      */
-    public static void listChar(List<Characters> characterList){
-    int i = 0;
-    for (Characters character : characterList){
-        i++;
-        System.out.println("Character " + i + ": " + character.getName());
+    public static void listChar(List<Characters> characterList) {
+        int i = 0;
+        for (Characters character : characterList) {
+            i++;
+            System.out.println("Character " + i + ": " + character.getName());
 
-    }
+        }
         System.out.println("\n");
     }
 
@@ -193,18 +190,17 @@ else if(choice == 5){
      * Show the characters information
      * @param characterList list of all characters created
      */
-    public static void showInfoChar(List<Characters> characterList){
-        System.out.println("Please select Character :");
+    public static void showInfoChar(List<Characters> characterList) {
+        System.out.println("Please select enter a character ID:");
         Scanner scan = new Scanner(System.in);
         int choice;
         try {
             choice = scan.nextInt();
-            System.out.println(characterList.get(choice-1));
-        }
-        catch (Exception e){
+            System.out.println(characterList.get(choice - 1));
+        } catch (Exception e) {
             System.out.println(ERROR_MSG_START + "Please enter a correct ID." + CUSTOM_TEXT_END);
             choice = scan.nextInt();
-            System.out.println(characterList.get(choice-1));
+            System.out.println(characterList.get(choice - 1));
         }
     }
 
@@ -227,7 +223,7 @@ else if(choice == 5){
         Characters attacker = characterList.get(firstCharacterID - 1);
         Characters defender = characterList.get(secondCharacterID - 1);
 
-        if (defender.getInitiative() > attacker.getInitiative()){
+        if (defender.getInitiative() > attacker.getInitiative()) {
             // If the defender has a higher initiative than the attacker, we swap both of them
             defender = characterList.get(firstCharacterID - 1);
             attacker = characterList.get(secondCharacterID - 1);
@@ -239,16 +235,16 @@ else if(choice == 5){
         System.out.println("\u001B[31m" + attacker.getName() + " provokes " + defender.getName() + " in a duel!" + "\u001B[0m" + " ⚔️");
 
         while (attacker.getCurrentLifePoints() > 0 && defender.getCurrentLifePoints() > 0) {
-            System.out.println("\u001B[1m--- ROUND "+ round +" ---\u001B[0m");
+            System.out.println("\u001B[1m--- ROUND " + round + " ---\u001B[0m");
 
-            System.out.println(attacker.getName() +" ("+ attacker.getCurrentLifePoints() +" HP) hits "
-                    + defender.getName()+" ("+ defender.getCurrentLifePoints() +" HP)!");
+            System.out.println(attacker.getName() + " (" + attacker.getCurrentLifePoints() + " HP) hits "
+                    + defender.getName() + " (" + defender.getCurrentLifePoints() + " HP)!");
 
             int damage = attacker.getDamage(); // We get the damage
-            System.out.println("A \u001B[31m"+ damage +" HP\u001B[0m hit! ");
+            System.out.println("A \u001B[31m" + damage + " HP\u001B[0m hit! ");
             defender.inflictDamage(damage); // Attacker hits defender
 
-            System.out.println(defender.getName() + " now has " + defender.getCurrentLifePoints()+" HP left.");
+            System.out.println(defender.getName() + " now has " + defender.getCurrentLifePoints() + " HP left.");
 
             // Swap the attacker and the defender
             swapCharacter = attacker;
@@ -263,10 +259,9 @@ else if(choice == 5){
 
         System.out.println("\u001B[31m" + "STOP!" + "\u001B[0m");
 
-        if (attacker.getCurrentLifePoints() <= 0 ){
+        if (attacker.getCurrentLifePoints() <= 0) {
             System.out.println(defender.getName() + " wins! \uD83D\uDC51");
-        }
-        else if (defender.getCurrentLifePoints() <= 0 ){
+        } else if (defender.getCurrentLifePoints() <= 0) {
             System.out.println(attacker.getName() + " wins! \uD83D\uDC51");
         }
     }
@@ -281,9 +276,8 @@ else if(choice == 5){
         Scanner sc = new Scanner(System.in);
         int choice;
         try {
-             choice = sc.nextInt();
-        }
-        catch (InputMismatchException e){
+            choice = sc.nextInt();
+        } catch (InputMismatchException e) {
             System.out.println(ERROR_MSG_START + "Input needs a number." + CUSTOM_TEXT_END);
             choice = 0;
 
@@ -297,12 +291,12 @@ else if(choice == 5){
      * @param characterList list of all characters created
      */
 
-    public static void executeUserChoice(int c, List<Characters> characterList){
+    public static void executeUserChoice(int c, List<Characters> characterList) {
 
         switch (c) { //list  of commands
 
             //default:
-            case 0 : // After an error, do nothing to return to the main menu
+            case 0: // After an error, do nothing to return to the main menu
                 break;
             case HELP_CMD:
                 Commands.help();
@@ -339,10 +333,10 @@ else if(choice == 5){
             case LAUNCH_FIGHT:
                 try {
                     Commands.launchFight(characterList);
-                }catch (InputMismatchException e){
+                } catch (InputMismatchException e) {
                     System.out.println(ERROR_MSG_START + "The duel cannot start : Bad input. Returning to the main menu" + CUSTOM_TEXT_END);
 
-                }catch (IndexOutOfBoundsException e){
+                } catch (IndexOutOfBoundsException e) {
                     System.out.println(ERROR_MSG_START + "The duel cannot start : Fighter(s) doesn't exist (Bad ID). Returning to the main menu" + CUSTOM_TEXT_END);
                 }
                 break;
@@ -354,17 +348,16 @@ else if(choice == 5){
             default:
                 try {
                     System.out.println(ERROR_MSG_START + "Wrong number." + CUSTOM_TEXT_END);
-                }catch (InputMismatchException e){
+                } catch (InputMismatchException e) {
                     System.out.println(ERROR_MSG_START + "Enter a correct number." + CUSTOM_TEXT_END);
                 }
 
 
-
-        }
-
         }
 
     }
+
+}
 
 
 
