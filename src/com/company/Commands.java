@@ -29,7 +29,7 @@ public class Commands {
      */
 
     public static void help() { //Function which allow to display a menu with options
-        System.out.println("\u001B[43m\u001B[30m-------- MENU --------\u001B[0m");
+        System.out.println("\u001B[1m-------- MENU --------\u001B[0m");
         System.out.println("1 - Help");// Display a list of commands
         System.out.println("2 - Exit");
         System.out.println("3 - Create a character");
@@ -112,7 +112,7 @@ else if(choice == 5){
     }
 
     public static void displayCharMenu(){
-        System.out.println("--- CHARACTER TYPES ---");
+        System.out.println("\u001B[1m--- CHARACTER TYPES ---\u001B[0m");
         System.out.println("1 - Basic");
         System.out.println("2 - Warrior");
         System.out.println("3 - Wizard");
@@ -222,7 +222,7 @@ else if(choice == 5){
         System.out.println("\u001B[31m" + attacker.getName() + " provokes " + defender.getName() + " in a duel!" + "\u001B[0m" + " ⚔️");
 
         while (attacker.getCurrentLifePoints() > 0 && defender.getCurrentLifePoints() > 0) {
-            System.out.println("--- ROUND "+ round +" ---");
+            System.out.println("\u001B[1m--- ROUND "+ round +" ---\u001B[0m");
 
             System.out.println(attacker.getName() +" ("+ attacker.getCurrentLifePoints() +" HP) hits " + defender.getName()+"!");
             defender.inflictDamage(attacker.getDamage()); // Attacker hits defender
