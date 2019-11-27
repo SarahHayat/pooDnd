@@ -263,56 +263,63 @@ else if(choice == 5){
     }
 
     public static void executeUserChoice(int c, List<Characters> characterList){
+    try {
+        switch (c) { //list  of commands
 
-            switch (c) { //list  of commands
+            //default:
+            case HELP_CMD:
+                Commands.help();
+                break;
 
-                default:
-                case HELP_CMD:
-                    Commands.help();
-                    break;
+            case EXIT_CMD:
+                Commands.exit();
+                break;
 
-                case EXIT_CMD:
-                    Commands.exit();
-                    break;
+            case CREATE_CHAR:
+                try {
+                    Commands.displayCharMenu();
+                    int ch = Commands.getChoiceChar();
+                    Commands.createAnyChar(ch, characterList);
 
-                case CREATE_CHAR:
-                    try {
-                        Commands.displayCharMenu();
-                        int ch = Commands.getChoiceChar();
-                        Commands.createAnyChar(ch,characterList);
+                } catch (Exception e) {
+                    System.out.println("⚠️ Error, Returning to the main menu");
+                    //int ch = Commands.getChoiceChar();
+                    //Commands.help();
+                    //Commands.createAnyChar(ch,characterList);
 
-                    }
-                    catch(Exception e){
-                        System.out.println("⚠️ Error, Returning to the main menu");
-                        //int ch = Commands.getChoiceChar();
-                        //Commands.help();
-                        //Commands.createAnyChar(ch,characterList);
+                }
 
-                    }
+                break;
+            case LIST_CHAR:
+                Commands.listChar(characterList);
+                break;
 
-                    break;
-                case LIST_CHAR:
-                    Commands.listChar(characterList);
-                    break;
+            case SHOW_CHAR:
+                try {
+                    Commands.showInfoChar(characterList);
+                } catch (Exception e) {
+                    System.out.println("⚠️ Error, Returning to the main menu");
+                }
+                break;
 
-                case SHOW_CHAR:
-                    try {
-                        Commands.showInfoChar(characterList);
-                    }catch (Exception e ){
-                        System.out.println("⚠️ Error, Returning to the main menu");
-                    }
-                    break;
-
-                case LAUNCH_FIGHT:
+            case LAUNCH_FIGHT:
+                try {
                     Commands.launchFight(characterList);
-                    break;
+                }catch (Exception e){
+                    System.out.println("⚠️ Error: The duel cannot start. Returning to the main menu");
 
-                case DELETE_CHAR:
-                    Commands.deleteChar(characterList);
-                    break;
+                }
+                break;
+
+            case DELETE_CHAR:
+                Commands.deleteChar(characterList);
+                break;
 
 
-            }
+        }
+    }catch (Exception e){
+        System.out.println("⚠️ Error, Returning to the main menu");
+    }
         }
 
 
