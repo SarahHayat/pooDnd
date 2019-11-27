@@ -2,12 +2,28 @@ package com.company;
 
 import java.util.Random;
 
+/**
+ *
+ * RPG Game - Characters > Thief
+ * @author Sarah, Maxence, Lucas, Laurent
+ * @version 1.0
+ */
+
 public class Thief extends Characters {
 
     private int probDodge;
     private int probCritical;
     private boolean criticalPreviousTurn;
 
+    /**
+     * Set the Thief parameters
+     * @param name the name of the character
+     * @param damage the value of the character damage points
+     * @param maxLifePoints the maximum life points
+     * @param initiative the value of the initiative to determine which characters starts the fight
+     * @param probDodge the value of dodge's move probability
+     * @param probCritical the value of critical hit's probability
+     */
     public Thief (String name, int damage, int maxLifePoints, int initiative, int probDodge, int probCritical){
 
         super(name, maxLifePoints, damage, initiative);
@@ -33,8 +49,7 @@ public class Thief extends Characters {
 
     /**
      *
-     * @param damage
-     *
+     * @param damage the value of the damage
      */
 
     public void inflictDamage(int damage){
@@ -52,9 +67,9 @@ public class Thief extends Characters {
     }
 
     /**
-     *
-     *
-     *
+     * Get the damage of the thief
+     * Double the damage when critical hit used by the thief
+     * Critical hit can be used on 2 consecutive attacks.
      */
 
     public int getDamage(){
@@ -73,6 +88,10 @@ public class Thief extends Characters {
         }
     }
 
+    /**
+     * Returns the Thief profile
+     * @return all information needed for the character
+     */
     public String toString(){
         return (super.toString() + "Dodge probability : " + this.getProbDodge() + "\n"
                 + "Critical hit probability : " + this.getProbCritical() + "\n");// Send character's information

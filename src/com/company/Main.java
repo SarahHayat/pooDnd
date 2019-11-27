@@ -3,9 +3,15 @@ package com.company;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * RPG Game - Homepage
+ * @author Sarah, Maxence, Lucas, Laurent
+ * @version 1.0
+ */
+
+
 public class Main {
-
-
 
     public static void main(String[] args) {
          List<Characters> characterList = new ArrayList<Characters>();
@@ -24,7 +30,7 @@ public class Main {
              c = Commands.getUserChoice();
              Commands.executeUserChoice(c , characterList);
 
-        }while( c != Commands.EXIT_CMD);
+        } while( c != Commands.EXIT_CMD);
 
         /**
          * Menu create
