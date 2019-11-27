@@ -57,8 +57,6 @@ public class Thief extends Characters {
         Random random = new Random();
         int luck = random.nextInt(101);
         // random number between 0 and 100
-        System.out.println("Luck :"+luck+" | Prob : "+this.probDodge);
-
 
         if (luck <= this.probDodge){
             // The thief dodges the attack
