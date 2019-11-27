@@ -1,11 +1,18 @@
 package com.company;
 
+/**
+ *
+ * RPG Game - List of all commands
+ * @author Sarah, Maxence, Lucas, Laurent
+ * @version 1.0
+ */
+
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class Commands {
-
 
     public final static int HELP_CMD = 1;
     public final static int EXIT_CMD= 2;
@@ -37,14 +44,13 @@ public class Commands {
         System.out.println("5 - Show Info");
         System.out.println("6 - Start a fight");
         System.out.println("7 - Delete Character");
-
-
     }
 
+    /**
+     * Exit the application
+     */
     public static void exit(){
-
         System.out.println("Bye ! \uD83D\uDC4B");
-
     }
 
     /**
@@ -111,6 +117,9 @@ else if(choice == 5){
 
     }
 
+    /**
+     * Display Create a character menu
+     */
     public static void displayCharMenu(){
         System.out.println("\u001B[1m--- CHARACTER TYPES ---\u001B[0m");
         System.out.println("1 - Basic");
@@ -120,6 +129,10 @@ else if(choice == 5){
         System.out.println("5 - Exit");
     }
 
+    /**
+     * Get the user's choice in the Create a character menu
+     * @return choice
+     */
     public static int getChoiceChar(){
 
         System.out.println("Please select a type :");
@@ -135,14 +148,6 @@ else if(choice == 5){
      * @param characterList - list of all characters created
      *
      */
-
-
-
-
-
-
-
-
 
     public static void deleteChar (List<Characters> characterList) {
 
@@ -169,6 +174,10 @@ else if(choice == 5){
 
     }
 
+    /**
+     * Show the list of all characters list
+     * @param characterList list of all characters created
+     */
     public static void listChar(List<Characters> characterList){
     int i = 0;
     for (Characters character : characterList){
@@ -179,6 +188,10 @@ else if(choice == 5){
 
     }
 
+    /**
+     * Show the characters information
+     * @param characterList list of all characters created
+     */
     public static void showInfoChar(List<Characters> characterList){
         System.out.println("Please select Character :");
         Scanner scan = new Scanner(System.in);
@@ -192,12 +205,12 @@ else if(choice == 5){
             choice = scan.nextInt();
             System.out.println(characterList.get(choice-1));
         }
-
-
-
-
     }
 
+    /**
+     * Process of the fight
+     * @param characterList list of all characters created
+     */
     public static void launchFight(List<Characters> characterList) {
 
         int round = 1;
@@ -249,6 +262,10 @@ else if(choice == 5){
         }
     }
 
+    /**
+     * Displays the list of commands when the user didn't write correctly a command
+     * @return choice
+     */
     public static int getUserChoice() { // Function which allows to display a list of commands if the user didn't write correctly a command
         System.out.println("Enter Command");
         Scanner sc = new Scanner(System.in);
@@ -262,6 +279,11 @@ else if(choice == 5){
         return choice;
     }
 
+    /**
+     *
+     * @param c the value of user's choice
+     * @param characterList list of all characters created
+     */
     public static void executeUserChoice(int c, List<Characters> characterList){
     try {
         switch (c) { //list  of commands
@@ -321,8 +343,6 @@ else if(choice == 5){
         System.out.println("⚠️ Error, Returning to the main menu");
     }
         }
-
-
 
     }
 
