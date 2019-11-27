@@ -17,7 +17,7 @@ public class Main {
      * Method main() which allows to start the game
      */
     public static void main(String[] args) {
-         List<Characters> characterList = new ArrayList<Characters>();
+         List<Characters> characterList = new ArrayList<Characters>(); //creation of the character list
 
         System.out.println("Application has started"); //test message
 

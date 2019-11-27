@@ -51,7 +51,7 @@ public class Commands {
     /**
      * Exit the application
      */
-    public static void exit(){
+    public static void exit(){ //Function exit
         System.out.println("Bye ! \uD83D\uDC4B");
     }
 
