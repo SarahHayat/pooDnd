@@ -48,7 +48,7 @@ public class Thief extends Characters {
     public int getProbCritical() { return this.probCritical; }
 
     /**
-     *
+     * Determines the value of the inflicted damage
      * @param damage the value of the damage
      */
 
