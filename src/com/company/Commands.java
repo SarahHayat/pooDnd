@@ -183,7 +183,7 @@ if(choice>0 && choice<6) {
             System.out.println(characterList.get(choice-1));
         }
         catch (Exception e){
-            System.out.println("Error, please try again ");
+            System.out.println("Error, please enter a right id ");
             choice = scan.nextInt();
             System.out.println(characterList.get(choice-1));
         }
@@ -291,7 +291,11 @@ if(choice>0 && choice<6) {
                     break;
 
                 case SHOW_CHAR:
-                    Commands.showInfoChar(characterList);
+                    try {
+                        Commands.showInfoChar(characterList);
+                    }catch (Exception e ){
+                        System.out.println("⚠️ Error, Returning to the main menu");
+                    }
                     break;
 
                 case LAUNCH_FIGHT:
