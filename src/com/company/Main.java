@@ -13,6 +13,9 @@ import java.util.List;
 
 public class Main {
 
+    /**
+     * Method main() which allows to start the game
+     */
     public static void main(String[] args) {
          List<Characters> characterList = new ArrayList<Characters>();
 

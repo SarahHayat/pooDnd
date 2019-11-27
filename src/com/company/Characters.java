@@ -18,7 +18,7 @@ public class Characters { //Characters Function
     private int initiative;
 
     /**
-     * Set the characher parameters
+     * Set the character parameters
      * @param name the name of the character
      * @param maxLifePoints the maximum life points
      * @param damage the character damage points

@@ -38,7 +38,8 @@ public class Warrior extends Characters {
 
     /**
      *
-     * @param damage
+     * Determines the value of the inflicted damage
+     * @param damage the value of damage
      *
      */
 

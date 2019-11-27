@@ -32,7 +32,6 @@ public class Commands {
 
     /**
      * Display the menu with commands
-     *
      */
 
     public static void help() { //Function which allow to display a menu with options
@@ -112,9 +111,6 @@ else if(choice == 5){
     }
     // default: displayCharMenu();
 
-
-
-
     }
 
     /**
@@ -146,7 +142,6 @@ else if(choice == 5){
 /**
      * Delete a character
      * @param characterList - list of all characters created
-     *
      */
 
     public static void deleteChar (List<Characters> characterList) {
@@ -266,6 +261,7 @@ else if(choice == 5){
      * Displays the list of commands when the user didn't write correctly a command
      * @return choice
      */
+
     public static int getUserChoice() { // Function which allows to display a list of commands if the user didn't write correctly a command
         System.out.println("Enter Command");
         Scanner sc = new Scanner(System.in);
@@ -284,6 +280,7 @@ else if(choice == 5){
      * @param c the value of user's choice
      * @param characterList list of all characters created
      */
+
     public static void executeUserChoice(int c, List<Characters> characterList){
 
             switch (c) { //list  of commands
@@ -309,9 +306,7 @@ else if(choice == 5){
                         //int ch = Commands.getChoiceChar();
                         //Commands.help();
                         //Commands.createAnyChar(ch,characterList);
-
                     }
-
                     break;
                 case LIST_CHAR:
                     Commands.listChar(characterList);
