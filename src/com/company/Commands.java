@@ -278,9 +278,10 @@ if(choice>0 && choice<6) {
 
                     }
                     catch(Exception e){
-                        System.out.println("⚠️ Error, please try again");
-                        int ch = Commands.getChoiceChar();
-                        Commands.createAnyChar(ch,characterList);
+                        System.out.println("⚠️ Error, Returning to the main menu");
+                        //int ch = Commands.getChoiceChar();
+                        //Commands.help();
+                        //Commands.createAnyChar(ch,characterList);
 
                     }
 
