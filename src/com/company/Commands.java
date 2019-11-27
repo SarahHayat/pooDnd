@@ -51,7 +51,7 @@ public class Commands {
     /**
      * Exit the application
      */
-    public static void exit(){
+    public static void exit(){ //Function exit
         System.out.println("Bye ! \uD83D\uDC4B");
     }
 
@@ -235,8 +235,13 @@ else if(choice == 5){
         while (attacker.getCurrentLifePoints() > 0 && defender.getCurrentLifePoints() > 0) {
             System.out.println("\u001B[1m--- ROUND "+ round +" ---\u001B[0m");
 
-            System.out.println(attacker.getName() +" ("+ attacker.getCurrentLifePoints() +" HP) hits " + defender.getName()+"!");
-            defender.inflictDamage(attacker.getDamage()); // Attacker hits defender
+            System.out.println(attacker.getName() +" ("+ attacker.getCurrentLifePoints() +" HP) hits "
+                    + defender.getName()+" ("+ defender.getCurrentLifePoints() +" HP)!");
+
+            int damage = attacker.getDamage(); // We get the damage
+            System.out.println("A \u001B[31m"+ damage +" HP\u001B[0m hit! ");
+            defender.inflictDamage(damage); // Attacker hits defender
+
             System.out.println(defender.getName() + " now has " + defender.getCurrentLifePoints()+" HP left.");
 
             // Swap the attacker and the defender
