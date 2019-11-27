@@ -2,7 +2,7 @@ package com.company;
 
 /**
  *
- * RPG Game - Characters > Wizard
+ * RPG Game - Characters : Wizard
  * @author Sarah, Maxence, Lucas, Laurent
  * @version 1.0
  */

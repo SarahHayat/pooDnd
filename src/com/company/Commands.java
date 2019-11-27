@@ -9,6 +9,7 @@ package com.company;
 
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -327,10 +328,16 @@ else if(choice == 5){
             case LAUNCH_FIGHT:
                 try {
                     Commands.launchFight(characterList);
-                }catch (Exception e){
-                    System.out.println("⚠️ Error: The duel cannot start. Returning to the main menu");
+                }catch (InputMismatchException e){
+                    System.out.println("⚠️ Error: The duel cannot start : Bad input. Returning to the main menu");
 
+                }catch (IndexOutOfBoundsException e){
+                    System.out.println("⚠️ Error: The duel cannot start : Fighter(s) doesn't exist (Bad ID). Returning to the main menu");
                 }
+                //finally {
+                //    System.out.println("xxx coucou");
+                //}
+
                 break;
 
             case DELETE_CHAR:

@@ -4,7 +4,7 @@ import java.util.Random;
 
 /**
  *
- * RPG Game - Characters > Thief
+ * RPG Game - Characters : Thief
  * @author Sarah, Maxence, Lucas, Laurent
  * @version 1.0
  */
@@ -57,12 +57,16 @@ public class Thief extends Characters {
         Random random = new Random();
         int luck = random.nextInt(101);
         // random number between 0 and 100
+        System.out.println("Luck :"+luck+" | Prob : "+this.probDodge);
 
-        if (luck <= this.getProbDodge()){
-            // Do nothing, the thief dodges the attack
+
+        if (luck <= this.probDodge){
+            // The thief dodges the attack
+            System.out.println("But the attack is dodged!");
+
         }
         else {
-            this.inflictDamage(damage);
+            super.inflictDamage(damage);
         }
     }
 
@@ -78,7 +82,8 @@ public class Thief extends Characters {
         int luck = random.nextInt(101);
         // random number between 0 and 100
 
-        if (luck <= this.getProbCritical() && criticalPreviousTurn == false){
+        if (luck <= this.probCritical && criticalPreviousTurn == false){
+            System.out.println("Critical hit!");
             criticalPreviousTurn = true;
             return super.getDamage()*2;
         }

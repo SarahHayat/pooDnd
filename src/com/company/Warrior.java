@@ -2,7 +2,7 @@ package com.company;
 
 /**
  *
- * RPG Game - Characters > Warrior
+ * RPG Game - Characters : Warrior
  * @author Sarah, Maxence, Lucas, Laurent
  * @version 1.0
  */
