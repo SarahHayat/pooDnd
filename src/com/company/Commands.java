@@ -42,20 +42,20 @@ public class Commands {
 
     public static void help() { //Function which allow to display a menu with options
         System.out.println("\u001B[1m-------- MENU --------\u001B[0m");
-        System.out.println("1 - Help");// Display a list of commands
-        System.out.println("2 - Exit");
-        System.out.println("3 - Create a character");
-        System.out.println("4 - List the characters");
-        System.out.println("5 - Show Info");
-        System.out.println("6 - Start a fight");
-        System.out.println("7 - Delete Character");
+        System.out.println("1 - Help ℹ️");// Display a list of commands
+        System.out.println("2 - Exit ❌");
+        System.out.println("3 - Create a character \uD83E\uDDCD");
+        System.out.println("4 - List the characters \uD83D\uDCCB");
+        System.out.println("5 - Show Info \uD83D\uDCDD");
+        System.out.println("6 - Start a fight \uD83E\uDD3C");
+        System.out.println("7 - Delete Character \uD83D\uDDD1️");
     }
 
     /**
      * Exit the application
      */
     public static void exit(){ //Function exit
-        System.out.println("Bye ! \uD83D\uDC4B");
+        System.out.println("Bye! \uD83D\uDC4B");
     }
 
     /**
@@ -109,7 +109,7 @@ if(choice>0 && choice<5) {
     }
 }
 else if(choice == 5){
-    System.out.println("Exit");
+    System.out.println("Returning to the main menu.");
 }
         else{
         System.out.println(ERROR_MSG_START + "Returning to the main menu." + CUSTOM_TEXT_END);
@@ -124,11 +124,11 @@ else if(choice == 5){
      */
     public static void displayCharMenu(){
         System.out.println("\u001B[1m--- CHARACTER TYPES ---\u001B[0m");
-        System.out.println("1 - Basic");
-        System.out.println("2 - Warrior");
-        System.out.println("3 - Wizard");
-        System.out.println("4 - Thief");
-        System.out.println("5 - Exit");
+        System.out.println("1 - Basic \uD83E\uDDCD");
+        System.out.println("2 - Warrior \uD83D\uDEE1️");
+        System.out.println("3 - Wizard \uD83E\uDDD9");
+        System.out.println("4 - Thief \uD83E\uDDB9");
+        System.out.println("5 - Exit ❌");
     }
 
     /**

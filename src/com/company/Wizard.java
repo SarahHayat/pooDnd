@@ -53,7 +53,7 @@ public class Wizard extends Characters {
     public int getDamage() {
         this.currentMagicDamage = this.getCurrentMagicDamage();
         if (this.currentMagicDamage > 0) {
-            System.out.println("A magic trick makes the wizard stronger : +"+this.currentMagicDamage+" HP of damage!");
+            System.out.println("A magic trick makes the wizard stronger : \u001B[32m+"+this.currentMagicDamage+" HP of damage!\u001B[0m");
         }
         return (this.currentMagicDamage + super.getDamage());
     }
