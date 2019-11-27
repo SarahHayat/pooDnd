@@ -55,7 +55,7 @@ public class Commands {
 
     public static void createAnyChar(int choice,List<Characters> characterList) { //Function which allow to create a character
 
-if(choice>0 && choice<6) {
+if(choice>0 && choice<5) {
     Scanner sc = new Scanner(System.in);
 
 
@@ -93,7 +93,12 @@ if(choice>0 && choice<6) {
             Thief thief = new Thief(newName, damage, maxLife, initiative, dodgePoints, probCritical);
             characterList.add(thief);
             break;
+        case EXIT_CHAR :
+            Commands.help();
     }
+}
+else if(choice == 5){
+    System.out.println("Exit");
 }
         else{
         System.out.println(" ⚠️ Error, Returning to the main menu");
