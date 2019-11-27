@@ -47,6 +47,9 @@ public class Warrior extends Characters {
         if (damage > shield) {
             super.inflictDamage(damage);
         }
+        else {
+            System.out.println("The attack is blocked by the shield!");
+        }
     }
 
     /**

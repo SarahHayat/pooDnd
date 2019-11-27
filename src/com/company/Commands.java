@@ -18,7 +18,7 @@ import java.util.Scanner;
 public class Commands {
 
     public final static int HELP_CMD = 1;
-    public final static int EXIT_CMD= 2;
+    public final static int EXIT_CMD = 2;
     public final static int CREATE_CHAR = 3;
     public final static int LIST_CHAR = 4;
     public final static int SHOW_CHAR = 5;
@@ -30,6 +30,9 @@ public class Commands {
     public final static int WIZARD_CHAR = 3;
     public final static int THIEF_CHAR = 4;
     public final static int EXIT_CHAR = 5;
+
+    public final static String ERROR_MSG_START = "⚠️ \u001B[33mError: ";
+    public final static String CUSTOM_TEXT_END = "\u001B[0m";
 
 
 
@@ -109,7 +112,7 @@ else if(choice == 5){
     System.out.println("Exit");
 }
         else{
-        System.out.println(" ⚠️ Error, Returning to the main menu");
+        System.out.println(ERROR_MSG_START + "Returning to the main menu." + CUSTOM_TEXT_END);
 
     }
 
@@ -155,8 +158,8 @@ else if(choice == 5){
         try { int characterListID = scan.nextInt();
             Characters charactersListID = characterList.get(characterListID - 1);
             System.out.println("Are you sure you want to \u001B[31mdelete\u001B[0m " + charactersListID.getName() + " ?");
-            System.out.println("1 - \u001B[32m Yes \u001B[0m");
-            System.out.println("2 - \u001B[31m No \u001B[0m");
+            System.out.println("1 - \u001B[32m Yes" + CUSTOM_TEXT_END);
+            System.out.println("2 - \u001B[31m No"  + CUSTOM_TEXT_END);
             int answer = scan.nextInt();
             if (answer == 1){
                 characterList.remove(characterListID - 1);
@@ -166,7 +169,7 @@ else if(choice == 5){
             }
         }
         catch (Exception e){
-            System.out.println(" ⚠️ Error, This character doesn't exist. Please try again");
+            System.out.println(ERROR_MSG_START + "This character doesn't exist. Please try again" + CUSTOM_TEXT_END);
         }
 
 
@@ -180,10 +183,10 @@ else if(choice == 5){
     int i = 0;
     for (Characters character : characterList){
         i++;
-        System.out.println("Character " + i + " : " + character.getName() + "\n" );
+        System.out.println("Character " + i + ": " + character.getName());
 
     }
-
+        System.out.println("\n");
     }
 
     /**
@@ -199,7 +202,7 @@ else if(choice == 5){
             System.out.println(characterList.get(choice-1));
         }
         catch (Exception e){
-            System.out.println("Error, please enter a right id ");
+            System.out.println(ERROR_MSG_START + "Please enter a correct ID." + CUSTOM_TEXT_END);
             choice = scan.nextInt();
             System.out.println(characterList.get(choice-1));
         }
@@ -229,6 +232,9 @@ else if(choice == 5){
             defender = characterList.get(firstCharacterID - 1);
             attacker = characterList.get(secondCharacterID - 1);
         }
+
+        attacker.resetCharacter();
+        defender.resetCharacter();
 
         System.out.println("\u001B[31m" + attacker.getName() + " provokes " + defender.getName() + " in a duel!" + "\u001B[0m" + " ⚔️");
 
@@ -278,7 +284,7 @@ else if(choice == 5){
              choice = sc.nextInt();
         }
         catch (InputMismatchException e){
-            System.out.println(" ⚠️ Error : input a number not a text");
+            System.out.println(ERROR_MSG_START + "Input needs a number." + CUSTOM_TEXT_END);
             choice = 0;
 
         }
@@ -313,8 +319,7 @@ else if(choice == 5){
                     Commands.createAnyChar(ch, characterList);
 
                 } catch (Exception e) {
-                    System.out.println("⚠️ Error, Returning to the main menu");
-
+                    System.out.println(ERROR_MSG_START + "Returning to the main menu." + CUSTOM_TEXT_END);
 
                 }
 
@@ -327,7 +332,7 @@ else if(choice == 5){
                 try {
                     Commands.showInfoChar(characterList);
                 } catch (Exception e) {
-                    System.out.println("⚠️ Error, Returning to the main menu");
+                    System.out.println(ERROR_MSG_START + "Returning to the main menu." + CUSTOM_TEXT_END);
                 }
                 break;
 
@@ -335,10 +340,10 @@ else if(choice == 5){
                 try {
                     Commands.launchFight(characterList);
                 }catch (InputMismatchException e){
-                    System.out.println("⚠️ Error: The duel cannot start : Bad input. Returning to the main menu");
+                    System.out.println(ERROR_MSG_START + "The duel cannot start : Bad input. Returning to the main menu" + CUSTOM_TEXT_END);
 
                 }catch (IndexOutOfBoundsException e){
-                    System.out.println("⚠️ Error: The duel cannot start : Fighter(s) doesn't exist (Bad ID). Returning to the main menu");
+                    System.out.println(ERROR_MSG_START + "The duel cannot start : Fighter(s) doesn't exist (Bad ID). Returning to the main menu" + CUSTOM_TEXT_END);
                 }
                 break;
 
@@ -348,9 +353,9 @@ else if(choice == 5){
 
             default:
                 try {
-                    System.out.println(" ⚠️ Wrong number");
+                    System.out.println(ERROR_MSG_START + "Wrong number." + CUSTOM_TEXT_END);
                 }catch (InputMismatchException e){
-                    System.out.println(" ⚠️ Error : Enter a right number ");
+                    System.out.println(ERROR_MSG_START + "Enter a correct number." + CUSTOM_TEXT_END);
                 }
 
 

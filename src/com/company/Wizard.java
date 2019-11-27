@@ -24,8 +24,9 @@ public class Wizard extends Characters {
      */
     public Wizard (String name, int damage, int maxLifePoints, int initiative, int maxMagicDamage){
 
-    super(name, maxLifePoints, damage, initiative );
-    this.currentMagicDamage = maxMagicDamage*2;
+    super(name, maxLifePoints, damage, initiative);
+    this.maxMagicDamage = maxMagicDamage;
+    this.currentMagicDamage = this.maxMagicDamage*2;
 }
     /**
      * Get the current Magic Damage
@@ -40,7 +41,7 @@ public class Wizard extends Characters {
      *
      */
 
-    public int getMaxMagicDamage() { return this.maxMagicDamage/2; }
+    public int getMaxMagicDamage() { return this.maxMagicDamage; }
 
     /**
      * Get the Wizard damage
@@ -49,17 +50,21 @@ public class Wizard extends Characters {
      * @return currentMagicDamage
      *
      */
-    public int getDamage(int damage) {
-        this.currentMagicDamage = currentMagicDamage/2;
-        return this.currentMagicDamage + damage;
+    public int getDamage() {
+        this.currentMagicDamage = this.getCurrentMagicDamage();
+        if (this.currentMagicDamage > 0) {
+            System.out.println("A magic trick makes the wizard stronger : +"+this.currentMagicDamage+" HP of damage!");
+        }
+        return (this.currentMagicDamage + super.getDamage());
     }
 
+
     /**
-     * Reset the Wizard damage
-     * Reset magic damage when the fight.
+     * Resets the life points and the magic points of a character back to the original amount
      *
      */
-    public void resetMagicDamage(){
+    public void resetCharacter(){
+        super.resetCharacter();
         this.currentMagicDamage = maxMagicDamage*2;
 
     }
@@ -70,7 +75,7 @@ public class Wizard extends Characters {
      */
 
     public String toString(){
-        return (super.toString() + "Base Magic Damage : " + this.maxMagicDamage + "\n"); // Send character's information
+        return (super.toString() + "Base Magic Damage : " + this.getMaxMagicDamage() + "\n"); // Send character's information
 
     }
 

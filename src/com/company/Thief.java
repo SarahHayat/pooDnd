@@ -60,7 +60,7 @@ public class Thief extends Characters {
 
         if (luck <= this.probDodge){
             // The thief dodges the attack
-            System.out.println("But the attack is dodged!");
+            System.out.println("But the attack is \u001B[35mdodged\u001B[0m!");
 
         }
         else {
@@ -81,7 +81,7 @@ public class Thief extends Characters {
         // random number between 0 and 100
 
         if (luck <= this.probCritical && criticalPreviousTurn == false){
-            System.out.println("Critical hit!");
+            System.out.println("Critical hit! \u001B[34m×2 damage\u001B[0m!");
             criticalPreviousTurn = true;
             return super.getDamage()*2;
         }

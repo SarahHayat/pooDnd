@@ -85,13 +85,23 @@ public class Characters { //Characters Function
     }
 
     /**
-     * Returns character's damage
+     * Inflict a specific amount of damage to a character
      * @param damage
      */
 
     public void inflictDamage(int damage){
         this.currentLifePoints = currentLifePoints - damage;
     }
+
+    /**
+     * Resets the life points of a character back to the original amount
+     *
+     */
+
+    public void resetCharacter(){
+        this.currentLifePoints = this.maxLifePoints;
+    }
+
 
     /**
      * Returns the character profile
