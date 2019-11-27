@@ -8,6 +8,8 @@ package com.company;
  */
 
 
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.List;
@@ -270,8 +272,10 @@ else if(choice == 5){
         try {
              choice = sc.nextInt();
         }
-        catch (Exception ex){
-            choice = HELP_CMD;
+        catch (InputMismatchException e){
+            System.out.println(" ⚠️ Error : input a number not a text");
+            choice = 0;
+
         }
         return choice;
     }
@@ -283,10 +287,12 @@ else if(choice == 5){
      */
 
     public static void executeUserChoice(int c, List<Characters> characterList){
-    try {
+
         switch (c) { //list  of commands
 
             //default:
+            case 0 : // After an error, do nothing to return to the main menu
+                break;
             case HELP_CMD:
                 Commands.help();
                 break;
@@ -329,19 +335,23 @@ else if(choice == 5){
                 }catch (IndexOutOfBoundsException e){
                     System.out.println("⚠️ Error: The duel cannot start : Fighter(s) doesn't exist (Bad ID). Returning to the main menu");
                 }
-
-
                 break;
 
             case DELETE_CHAR:
                 Commands.deleteChar(characterList);
                 break;
 
+            default:
+                try {
+                    System.out.println(" ⚠️ Wrong number");
+                }catch (InputMismatchException e){
+                    System.out.println(" ⚠️ Error : Enter a right number ");
+                }
+
+
 
         }
-    }catch (Exception e){
-        System.out.println("⚠️ Error, Returning to the main menu");
-    }
+
         }
 
     }

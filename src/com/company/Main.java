@@ -30,7 +30,7 @@ public class Main {
 
         do {  //loop while, if the user didn't write correctly a command, display a list of commands (à modifier)
             Commands.help();
-             c = Commands.getUserChoice();
+            c = Commands.getUserChoice();
              Commands.executeUserChoice(c , characterList);
 
         } while( c != Commands.EXIT_CMD);
