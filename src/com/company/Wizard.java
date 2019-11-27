@@ -24,7 +24,7 @@ public class Wizard extends Characters {
      */
     public Wizard (String name, int damage, int maxLifePoints, int initiative, int maxMagicDamage){
 
-    super(name, maxLifePoints, damage, initiative);
+    super(name, maxLifePoints, damage, initiative );
     this.currentMagicDamage = maxMagicDamage*2;
 }
     /**
@@ -70,7 +70,7 @@ public class Wizard extends Characters {
      */
 
     public String toString(){
-        return (super.toString() + "Base Magic Damage : " + this.getMaxMagicDamage() + "\n"); // Send character's information
+        return (super.toString() + "Base Magic Damage : " + this.maxMagicDamage + "\n"); // Send character's information
 
     }
 
