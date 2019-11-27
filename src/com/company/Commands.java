@@ -29,7 +29,7 @@ public class Commands {
      */
 
     public static void help() { //Function which allow to display a menu with options
-        System.out.println("\u001B[43m -------- MENU -------- \u001B[0m");
+        System.out.println("\u001B[43m\u001B[30m-------- MENU --------\u001B[0m");
         System.out.println("1 - Help");// Display a list of commands
         System.out.println("2 - Exit");
         System.out.println("3 - Create a character");
