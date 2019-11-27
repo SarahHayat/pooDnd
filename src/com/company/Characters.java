@@ -34,22 +34,7 @@ public class Characters { //Characters Function
 
     }
 
-   /* public static Characters newChar(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the name : ");
-        String newName = sc.nextLine();
-        System.out.println("Enter the MaxLife : ");
-        int maxLife = sc.nextInt();
-        System.out.println("Enter the damage : ");
-        int damage = sc.nextInt();
-        System.out.println("Enter the initiative : ");
-        int initiative = sc.nextInt();
 
-        Characters char1 = new Characters(newName, maxLife, damage, initiative);
-        System.out.println(char1.toString());
-
-        return char1;
-    }*/
 
     /**
      * Returns the character's name

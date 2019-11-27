@@ -29,7 +29,7 @@ public class Commands {
     public final static int THIEF_CHAR = 4;
     public final static int EXIT_CHAR = 5;
 
-  // ArrayList<Characters> characterList = new ArrayList<Characters>();
+
 
     /**
      * Display the menu with commands
@@ -108,9 +108,9 @@ else if(choice == 5){
 }
         else{
         System.out.println(" ⚠️ Error, Returning to the main menu");
-        //Commands.help();
+
     }
-    // default: displayCharMenu();
+
 
     }
 
@@ -277,7 +277,7 @@ else if(choice == 5){
     }
 
     /**
-     *
+     * Execute the users choice on the menu
      * @param c the value of user's choice
      * @param characterList list of all characters created
      */
@@ -303,9 +303,7 @@ else if(choice == 5){
 
                 } catch (Exception e) {
                     System.out.println("⚠️ Error, Returning to the main menu");
-                    //int ch = Commands.getChoiceChar();
-                    //Commands.help();
-                    //Commands.createAnyChar(ch,characterList);
+
 
                 }
 
@@ -331,9 +329,7 @@ else if(choice == 5){
                 }catch (IndexOutOfBoundsException e){
                     System.out.println("⚠️ Error: The duel cannot start : Fighter(s) doesn't exist (Bad ID). Returning to the main menu");
                 }
-                //finally {
-                //    System.out.println("xxx coucou");
-                //}
+
 
                 break;
 
