@@ -119,7 +119,7 @@ public class Commands {
     /**
      * Display Create a character menu
      */
-    public static void displayCharMenu() {
+    public static void displayCharMenu(){ //Function which Display character types menu for the character creation
         System.out.println("\u001B[1m--- CHARACTER TYPES ---\u001B[0m");
         System.out.println("1 - Basic \uD83E\uDDCD");
         System.out.println("2 - Warrior \uD83D\uDEE1️");
@@ -132,7 +132,7 @@ public class Commands {
      * Get the user's choice in the Create a character menu
      * @return choice
      */
-    public static int getChoiceChar() {
+    public static int getChoiceChar(){  //Function which allow to pick a character type
 
         System.out.println("Please select a type :");
         Scanner sc = new Scanner(System.in);
@@ -147,7 +147,7 @@ public class Commands {
      * @param characterList - list of all characters created
      */
 
-    public static void deleteChar(List<Characters> characterList) {
+    public static void deleteChar (List<Characters> characterList) { //Function which allow to delete a character 
 
         System.out.println("Please select Character :");
         Scanner scan = new Scanner(System.in);
